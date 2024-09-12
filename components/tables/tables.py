@@ -58,5 +58,9 @@ class Tables:
         return True
 
     @log_decorator
+    def create_seasons_table(self) -> bool:
+        pass
+
+    @log_decorator
     def create_appeals_table(self) -> bool:
         pass

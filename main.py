@@ -195,11 +195,11 @@ def admin_users_menu():
     try:
         user_input: int = int(input("Choose menu: ").strip())
         if user_input == 1:
-            pass
+            admin.update_users()
         elif user_input == 2:
             pass
         elif user_input == 3:
-            pass
+            admin.show_all_users()
         elif user_input == 4:
             admin_menu()
         else:

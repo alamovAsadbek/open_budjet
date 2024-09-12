@@ -19,10 +19,11 @@ class AdminUsersPageAdmin:
 
     @log_decorator
     def update_user(self) -> bool:
-        print(color_text('Waiting...', 'cyan'))
         if not self.show_all_users():
             return False
-        user_id: int = int(input('Enter user ID: ').strip())
+        user_id: int = int(input('Enter user ID or enter 0 to exit: ').strip())
+        if user_id == 0:
+            return False
         print(color_text("Checked...", 'cyan'))
         query = '''
         SELECT * FROM users WHERE id=%s;

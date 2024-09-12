@@ -22,6 +22,7 @@ class AdminCategoryPageAdmin:
 
     @log_decorator
     def show_all_categories(self) -> bool:
+        print("Waiting...")
         pagination = Pagination(table_name='categories', table_keys=['id', 'name'],
                                 display_keys=['ID', "Name"])
         pagination.page_tab()

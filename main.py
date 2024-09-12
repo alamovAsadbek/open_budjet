@@ -20,6 +20,11 @@ def auth_menu():
                 auth_menu()
             elif result_login['role'] == 'admin':
                 admin_menu()
+            elif result_login['role'] == 'user':
+                user_menu()
+            else:
+                print("Login failed")
+                auth_menu()
         elif user_input == 3:
             print("Waiting...")
             auth.logout()

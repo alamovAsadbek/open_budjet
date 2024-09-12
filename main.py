@@ -148,7 +148,19 @@ def admin_seasons_menu():
 
 @log_decorator
 def admin_categories_menu():
-    pass
+    text = '''
+1. Create new categories
+2. Update existing categories
+3. Delete existing categories
+4. Show existing categories
+5. Back
+    '''
+    print(text)
+    try:
+        pass
+    except Exception as e:
+        print(f'Error: {e}')
+        admin_categories_menu()
 
 
 if __name__ == '__main__':

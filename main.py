@@ -67,7 +67,18 @@ def user_menu():
 
 @log_decorator
 def user_season_menu():
-    pass
+    text = '''
+1. Voting
+2. Statistics
+3. My votes
+4. Back
+    '''
+    print(text)
+    try:
+        pass
+    except Exception as e:
+        print(f'Error: {e}')
+        user_season_menu()
 
 
 @log_decorator

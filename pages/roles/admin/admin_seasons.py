@@ -37,6 +37,19 @@ class AdminSeasonsPageAdmin:
         return result_get
 
     @log_decorator
+    def (self) -> bool:
+        print(color_text("Switch districts", color='blue'))
+        query = '''
+        select d.ID as d_id, d.name as d_name, r.NAME as r_name from districts d inner join regions r on d.REGION_ID = r.ID;
+        '''
+        get_districts = execute_query(query, fetch='all')
+        pagination = Pagination(table_name='districts', table_keys=['d_id', 'r_name', 'd_name'],
+                                display_keys=["ID", "Region name", "Districts name"], data=get_districts)
+        if not pagination.page_tab():
+            print("District not found")
+            return False
+
+    @log_decorator
     def create_seasons(self):
         print(color_text('Waiting...', color='cyan'))
         print(color_text('Check out the first categories to create a new season. Then the categories cannot be changed',

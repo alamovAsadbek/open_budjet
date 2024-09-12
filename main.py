@@ -175,7 +175,18 @@ def admin_categories_menu():
 
 @log_decorator
 def admin_users_menu():
-    pass
+    text = '''
+1. Update existing users
+2. Delete existing users
+3. Show existing users
+4. Back
+    '''
+    print(text)
+    try:
+        pass
+    except Exception as e:
+        print(f'Error: {e}')
+        admin_users_menu()
 
 
 if __name__ == '__main__':

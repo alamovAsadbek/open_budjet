@@ -1,3 +1,5 @@
+import threading
+
 from components.tables.tables import Tables
 from main_files.decorator.decorator_func import log_decorator
 
@@ -8,7 +10,8 @@ class Auth:
 
     @log_decorator
     def create_tables(self):
-        pass
+        self.__tables.create_users_table()
+        threading.Thread(target=self.__tables.create_categories_table).start()
 
     @log_decorator
     def login(self):

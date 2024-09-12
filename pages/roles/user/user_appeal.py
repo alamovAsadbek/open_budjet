@@ -81,3 +81,6 @@ class UserAppealPageUser:
         if get_district is None or get_district is False:
             print(color_text('District not found', 'red'))
             return False
+        title: str = input("Enter title: ").strip()
+        description: str = input("Enter description: ").strip()
+        price: int = int(input("Enter price only number(uzs): "))

@@ -1,2 +1,7 @@
+from main_files.decorator.decorator_func import log_decorator
+
+
 class UserAppealPageUser:
-    pass
+    @log_decorator
+    def send_request(self):
+        pass

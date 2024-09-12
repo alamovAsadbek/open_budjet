@@ -1,9 +1,10 @@
 from main_files.decorator.decorator_func import log_decorator
+from pages.roles.user.user_appeal import UserAppealPageUser
 
 
 class User:
     def __init__(self):
-        pass
+        self.__appeals_menu = UserAppealPageUser()
 
     @log_decorator
     def send_request(self):

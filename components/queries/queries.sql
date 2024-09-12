@@ -2,7 +2,7 @@
 CREATE TABLE IF NOT EXISTS users
 (
     ID
-    INTEGER
+    BIGSERIAL
     PRIMARY
     KEY,
     FIRST_NAME

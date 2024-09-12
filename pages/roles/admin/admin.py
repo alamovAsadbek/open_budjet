@@ -1,3 +1,4 @@
+from main_files.decorator.decorator_func import log_decorator
 from pages.roles.admin.admin_appeals import AdminAppealsPageAdmin
 from pages.roles.admin.admin_categories import AdminCategoryPageAdmin
 from pages.roles.admin.admin_seasons import AdminSeasonsPageAdmin
@@ -10,3 +11,10 @@ class Admin:
         self.__appeals_menu = AdminAppealsPageAdmin()
         self.__categories_menu = AdminCategoryPageAdmin()
         self.__users_menu = AdminUsersPageAdmin()
+
+    # season menu
+    @log_decorator
+    def create_new_season(self):
+        pass
+    
+    # / season menu

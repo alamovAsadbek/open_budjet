@@ -64,4 +64,8 @@ class Admin:
     def update_users(self) -> bool:
         self.__users_menu.update_user()
         return True
+
+    @log_decorator
+    def delete_user(self):
+        pass
     # / users menu

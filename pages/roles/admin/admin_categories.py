@@ -15,7 +15,6 @@ class AdminCategoryPageAdmin:
         '''
         threading.Thread(target=execute_query, args=(query, (name,))).start()
         print(color_text("Category created successfully", color='green', is_bold=True))
-        print()
         return True
 
     @log_decorator

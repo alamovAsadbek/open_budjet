@@ -68,6 +68,10 @@ class UserAppealPageUser:
         return result_get
 
     @log_decorator
+    def get_active_season(self):
+        pass
+
+    @log_decorator
     def send_request(self):
         get_category = self.get_category()
         if get_category is None or get_category is False:

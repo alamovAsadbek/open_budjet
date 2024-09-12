@@ -48,4 +48,16 @@ class AdminUsersPageAdmin:
 
     @log_decorator
     def delete_user(self) -> bool:
-        pass
+        if not self.show_all_users():
+            return False
+        user_id: int = int(input('Enter user ID or enter 0 to exit: ').strip())
+        if user_id == 0:
+            return False
+        print(color_text("Checked...", 'cyan'))
+        query = '''
+        SELECT * FROM users WHERE id=%s;
+        '''
+        result_get = execute_query(query, (user_id,), 'one')
+        if result_get is None:
+            print(color_text('User not found', 'yellow'))
+            return False

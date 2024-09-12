@@ -61,7 +61,7 @@ class UserAppealPageUser:
             return False
         print(color_text("Checked...", color='cyan'))
         query = '''
-        SELECT * FROM districts WHERE d_id=%s;
+        SELECT * FROM districts WHERE id=%s;
         '''
         params = (district_id,)
         result_get = execute_query(query, params, fetch='one')

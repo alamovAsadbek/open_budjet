@@ -1,3 +1,4 @@
+import hashlib
 import threading
 
 from components.tables.tables import Tables
@@ -30,5 +31,13 @@ class Auth:
 
     @log_decorator
     def register(self) -> bool:
-        first_name = input('First name: ').strip()
-        last_name = input('Last name: ').strip()
+        first_name: str = input('First name: ').strip()
+        last_name: str = input('Last name: ').strip()
+        email: str = input('Email: ').strip()
+        password: str = hashlib.sha256(input('Password: ').encode('utf-8')).hexdigest()
+        confirm_password: str = hashlib.sha256(password.encode('utf-8')).hexdigest()
+        while password != confirm_password:
+            print('Passwords do not match!')
+            password: str = hashlib.sha256(input('Password: ').encode('utf-8')).hexdigest()
+            confirm_password: str = hashlib.sha256(password.encode('utf-8')).hexdigest()
+        return True

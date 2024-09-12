@@ -26,4 +26,7 @@ class Admin:
         self.__categories_menu.create_category()
         return True
 
+    @log_decorator
+    def show_all_categories(self):
+        pass
     # /category menu

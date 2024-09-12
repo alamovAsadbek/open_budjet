@@ -30,7 +30,9 @@ class UserAppealPageUser:
         if not pagination.page_tab():
             print("Region not found")
             return False
-        region_id: int = int(input("Enter region ID: ").strip())
+        region_id: int = int(input("Enter region ID or enter 0 to exit: ").strip())
+        if region_id == 0:
+            return False
         print(color_text("Checked...", color='cyan'))
         query = '''
             SELECT * FROM regions WHERE id=%s;

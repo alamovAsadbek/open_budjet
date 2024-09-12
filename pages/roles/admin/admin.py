@@ -20,7 +20,8 @@ class Admin:
 
     @log_decorator
     def update_season_status(self) -> bool:
-        pass
+        self.__season_menu.update_status()
+        return True
 
     # / season menu
 

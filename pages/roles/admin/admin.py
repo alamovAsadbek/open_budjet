@@ -1,3 +1,3 @@
 class Admin:
     def __init__(self):
-        pass
+        self.__season_menu = 0

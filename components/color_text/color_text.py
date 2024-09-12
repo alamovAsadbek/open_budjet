@@ -19,9 +19,11 @@ def color_text(text, color, is_bold=False):
         text = f"{Fore.CYAN}{text}{Style.RESET_ALL}"
     elif color == 'white':
         text = f"{Fore.WHITE}{text}{Style.RESET_ALL}"
+    elif color == 'red':
+        text = f"{Fore.RED}{text}{Style.RESET_ALL}"
     else:
         text = f"{Fore.WHITE}{text}{Style.RESET_ALL}"
-        
+
     if is_bold:
         text = f'{Style.BRIGHT}{text}{Style.RESET_ALL}'
     return text

@@ -89,6 +89,7 @@ class AdminSeasonsPageAdmin:
 
     @log_decorator
     def update_status(self):
+        print(color_text('Waiting...', color='cyan'))
         active_seasons = self.get_active_seasons()
         if active_seasons is None:
             print(color_text('\nThere is no active season', color='red'))

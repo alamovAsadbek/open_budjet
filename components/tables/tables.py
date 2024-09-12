@@ -62,7 +62,7 @@ class Tables:
         query = '''
         CREATE TABLE IF NOT EXISTS SEASONS
         (
-            ID            BIGINT PRIMARY KEY,
+            ID            BIGSERIAL PRIMARY KEY,
             NAME          VARCHAR(255) NOT NULL,
             CATEGORIES_ID jsonb,
             STATUS        VARCHAR(255) NULL DEFAULT 'not_started',

@@ -99,4 +99,16 @@ class Tables:
 
     @log_decorator
     def create_votes_table(self) -> bool:
-        pass
+        query = '''
+        CREATE TABLE IF NOT EXISTS votes
+        (
+            ID         BIGSERIAL PRIMARY KEY,
+            USER_ID    BIGINT    NOT NULL,
+            APPEAL_ID  BIGINT    NOT NULL,
+            CREATED_AT TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (USER_ID) REFERENCES users (ID) ON DELETE CASCADE,
+            FOREIGN KEY (APPEAL_ID) REFERENCES appeals (ID) ON DELETE CASCADE
+        )
+        '''
+        execute_query(query)
+        return True

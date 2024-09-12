@@ -45,6 +45,11 @@ class Auth:
         if result_get is None:
             print("User not found")
             return {'is_login': False}
+        query = '''
+        UPDATE users SET IS_LOGIN=TRUE WHERE email=%s and password=%s
+        '''
+        params = (email, password,)
+        threading.Thread(target=execute_query, args=(query, params)).start()
         return {'is_login': True, 'role': 'user'}
 
     @log_decorator

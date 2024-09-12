@@ -22,6 +22,11 @@ class Auth:
     def create_tables(self) -> bool:
         self.__tables.create_users_table()
         threading.Thread(target=self.__tables.create_categories_table).start()
+        threading.Thread(target=self.__tables.create_regions_table).start()
+        threading.Thread(target=self.__tables.create_districts_table).start()
+        threading.Thread(target=self.__tables.create_seasons_table).start()
+        threading.Thread(target=self.__tables.create_appeals_table).start()
+        threading.Thread(target=self.__tables.create_votes_table).start()
         return True
 
     @log_decorator

@@ -6,6 +6,10 @@ from main_files.decorator.decorator_func import log_decorator
 
 class UserAppealPageUser:
     @log_decorator
+    def get_category(self):
+        pass
+
+    @log_decorator
     def switch_region(self) -> bool or list:
         print(color_text("Switch region", color='blue'))
         pagination = Pagination(table_name='regions', table_keys=['id', 'name'],

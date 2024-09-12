@@ -35,9 +35,6 @@ class UserAppealPageUser:
             SELECT * FROM regions WHERE id=%s;
             '''
         result_get = execute_query(query, (region_id,), fetch='one')
-        if result_get is None:
-            print("Region not found")
-            return False
         return result_get
 
     @log_decorator

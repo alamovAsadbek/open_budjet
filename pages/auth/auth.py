@@ -2,6 +2,7 @@ import hashlib
 import threading
 import time
 
+from components.color_text.color_text import color_text
 from components.email_sender.email_sender import EmailSender
 from components.random_password.generate_password import generate_password
 from components.tables.tables import Tables
@@ -53,7 +54,7 @@ class Auth:
         password: str = hashlib.sha256(input('Password: ').encode('utf-8')).hexdigest()
         confirm_password: str = hashlib.sha256(input("Confirm password: ").strip().encode('utf-8')).hexdigest()
         while password != confirm_password:
-            print('Passwords do not match!')
+            print(color_text('Passwords do not match!', color='red', is_error=True))
             password: str = hashlib.sha256(input('Password: ').encode('utf-8')).hexdigest()
             confirm_password: str = hashlib.sha256(input("Confirm password: ").strip().encode('utf-8')).hexdigest()
         print(f"\nConfirm email: {email}\n")

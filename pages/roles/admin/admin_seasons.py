@@ -30,14 +30,14 @@ class AdminSeasonsPageAdmin:
         query = '''
         SELECT * FROM regions WHERE id=%s;
         '''
-        result_get = execute_query(query, (region_id,))
+        result_get = execute_query(query, (region_id,), fetch='one')
         if result_get is None:
             print("Region not found")
             return False
         return result_get
 
     @log_decorator
-    def switch_country(self) -> bool:
+    def switch_country(self) -> bool or list:
         print(color_text("Switch districts", color='blue'))
         query = '''
         select d.ID as d_id, d.name as d_name, r.NAME as r_name from districts d 
@@ -49,6 +49,16 @@ class AdminSeasonsPageAdmin:
         if not pagination.page_tab():
             print("District not found")
             return False
+        district_id: int = int(input("Enter district ID: ").strip())
+        print(color_text("Checked...", color='cyan'))
+        query = '''
+        SELECT * FROM districts WHERE ID=%s;
+        '''
+        result_get = execute_query(query, (district_id,), fetch='one')
+        if result_get is None:
+            print("District not found")
+            return False
+        return result_get
 
     @log_decorator
     def create_seasons(self):
@@ -62,3 +72,4 @@ class AdminSeasonsPageAdmin:
         get_region = self.switch_region()
         if get_region is False:
             return False
+        get

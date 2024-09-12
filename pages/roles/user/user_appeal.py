@@ -9,7 +9,9 @@ class UserAppealPageUser:
     def get_category(self):
         pagination = Pagination(table_name='categories', table_keys=['id', 'name'],
                                 display_keys=['ID', 'Name'])
-        return pagination.page_tab()
+        pagination.page_tab()
+        category_id: int = int(input("Enter the category ID: ").strip())
+        print(color_text('Checked...', 'cyan'))
 
     @log_decorator
     def switch_region(self) -> bool or list:

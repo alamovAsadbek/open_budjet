@@ -16,5 +16,13 @@ class Admin:
     @log_decorator
     def create_new_season(self):
         pass
-    
+
     # / season menu
+
+    # category menu
+
+    @log_decorator
+    def create_new_category(self):
+        pass
+    
+    # /category menu

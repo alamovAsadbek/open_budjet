@@ -318,3 +318,6 @@ VALUES (1, 'Marxamat tumani'),
        (14, 'Chimboy tumani'),
        (14, 'Taxiatosh tumani');
 
+
+-- Yangi category qo'shish uchun query
+INSERT INTO categories (name) VALUES ('%s');

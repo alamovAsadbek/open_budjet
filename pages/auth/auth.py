@@ -45,9 +45,13 @@ class Auth:
 
     @log_decorator
     def check_email(self, email: str) -> bool:
-        query='''
-        
+        query = '''
+        SELECT * FROM USERS WHERE email=%s;
         '''
+        result = execute_query(query, (email,))
+        if result is None:
+            return False
+        return True
 
     @log_decorator
     def register(self) -> bool:

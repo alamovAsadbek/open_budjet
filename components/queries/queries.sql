@@ -42,5 +42,6 @@ CREATE TABLE IF NOT EXISTS categories
     );
 
 -- userlarni logout qilish uchun query
-UPDATE users SET is_login=FALSE;
+UPDATE users
+SET is_login= FALSE;
 

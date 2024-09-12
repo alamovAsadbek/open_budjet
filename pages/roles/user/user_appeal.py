@@ -46,7 +46,7 @@ class UserAppealPageUser:
         query = '''
         SELECT d.id as d_id, d.name as d_name, r.name as r_name
          FROM districts d INNER JOIN regions r ON d.region_id=r.id 
-        WHERE id=%s and region_id=%s;
+        WHERE region_id=%s;
         '''
         result_get = execute_query(query, (region_id,), fetch='all')
         if result_get is None:

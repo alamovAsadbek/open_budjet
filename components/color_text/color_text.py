@@ -7,7 +7,6 @@ init(autoreset=True)
 
 @log_decorator
 def color_text(text, color, is_bold=False):
-    text = f"{Fore.RED}{text}{Style.RESET_ALL}"
     if color == 'green':
         text = f"{Fore.GREEN}{text}{Style.RESET_ALL}"
     elif color == 'yellow':
@@ -22,7 +21,7 @@ def color_text(text, color, is_bold=False):
         text = f"{Fore.WHITE}{text}{Style.RESET_ALL}"
     else:
         text = f"{Fore.WHITE}{text}{Style.RESET_ALL}"
+        
     if is_bold:
         text = f'{Style.BRIGHT}{text}{Style.RESET_ALL}'
-
     return text

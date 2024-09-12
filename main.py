@@ -138,7 +138,7 @@ def admin_seasons_menu():
         if user_input == 1:
             admin.create_new_season()
         elif user_input == 2:
-            pass
+            admin.update_season_status()
         elif user_input == 3:
             pass
         elif user_input == 4:

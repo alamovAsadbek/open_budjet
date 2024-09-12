@@ -45,6 +45,7 @@ class Auth:
         if result_get is None:
             print("User not found")
             return {'is_login': False}
+        return {'is_login': True, 'role': 'user'}
 
     @log_decorator
     def logout(self) -> bool:

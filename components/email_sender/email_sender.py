@@ -29,3 +29,4 @@ class EmailSender:
         except smtplib.SMTPException as e:
             print(f"Error: {e}")
             return False
+

@@ -96,5 +96,21 @@ CREATE TABLE IF NOT EXISTS votes
     CREATED_AT TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (USER_ID) REFERENCES users (ID) ON DELETE CASCADE,
     FOREIGN KEY (APPEAL_ID) REFERENCES appeals (ID) ON DELETE CASCADE
-)
+);
 
+-- regionlarni qo'shib olish uchun query
+INSERT INTO regions(NAME)
+VALUES ('Andijon viloyati'),
+       ('Buxoro viloyati'),
+       ('Jizzax viloyati'),
+       ('Qashqadaryo viloyati'),
+       ('Navoiy viloyati'),
+       ('Namangan viloyati'),
+       ('Samarqand viloyati'),
+       ('Surxondaryo viloyati'),
+       ('Sirdaryo viloyati'),
+       ('Toshkent shahri'),
+       ('Toshkent viloyati'),
+       ('Farg`ona viloyati'),
+       ('Xorazm viloyati'),
+       ('Qoraqalpog`iston Respublikasi');

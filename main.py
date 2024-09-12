@@ -18,6 +18,9 @@ def auth_menu():
             pass
         elif user_input == 3:
             pass
+        else:
+            print("Wrong input")
+        auth_menu()
     except Exception as e:
         print(f'Error: {e}')
         auth_menu()

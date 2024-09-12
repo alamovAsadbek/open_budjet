@@ -93,3 +93,5 @@ class AdminSeasonsPageAdmin:
         if active_seasons is None:
             print(color_text('\nThere is no active season', color='red'))
             return False
+        print(f"\nSeason ID: {active_seasons['id']}\nSeason Name: {active_seasons['name']}\n"
+              f"Status: {active_seasons['status']}\nCreated At: {active_seasons['created_at']}\n")

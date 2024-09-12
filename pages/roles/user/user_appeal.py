@@ -44,10 +44,28 @@ class UserAppealPageUser:
     def switch_district(self, region_id) -> bool or list:
         print(color_text("Switch district", color='blue'))
         query = '''
-        SELECT * FROM districts d INNER JOIN regions r ON d.region_id=r.id 
+        SELECT d.id as d_id, d.name as d_name, r.name as r_name
+         FROM districts d INNER JOIN regions r ON d.region_id=r.id 
         WHERE id=%s and region_id=%s;
         '''
         result_get = execute_query(query, (region_id,), fetch='all')
+        if result_get is None:
+            return False
+        pagination = Pagination(table_name='districts', table_keys=['d_id', 'r_name', 'd_name', ],
+                                display_keys=['Districts ID', 'Region name', 'Districts name'], data=result_get)
+        if not pagination.page_tab():
+            print(color_text("District not found", 'yellow'))
+            return False
+        district_id: int = int(input("Enter district ID or enter 0 to exit: ").strip())
+        if district_id == 0:
+            return False
+        print(color_text("Checked...", color='cyan'))
+        query = '''
+        SELECT * FROM districts WHERE d_id=%s;
+        '''
+        params = (district_id,)
+        result_get = execute_query(query, params, fetch='one')
+        return result_get
 
     @log_decorator
     def send_request(self):

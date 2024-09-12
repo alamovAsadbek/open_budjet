@@ -33,6 +33,11 @@ def auth_menu():
 
 
 @log_decorator
+def user_menu():
+    pass
+
+
+@log_decorator
 def admin_menu():
     text = '''
 1. Statistics

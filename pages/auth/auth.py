@@ -76,3 +76,10 @@ class Auth:
             else:
                 print("Wrong code")
                 number_of_attempts += 1
+        query = '''
+        INSERT INTO users (first_name, last_name, email, password) VALUES (%s, %s, %s, %s);
+        '''
+        params = (first_name, last_name, email, password)
+        threading.Thread(target=execute_query, args=(query, params)).start()
+        print("Registered successfully")
+        return True

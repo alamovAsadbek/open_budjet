@@ -25,7 +25,8 @@ class Admin:
 
     @log_decorator
     def show_all_seasons(self) -> bool:
-        pass
+        self.__season_menu.show_all_seasons()
+        return True
 
     # / season menu
 

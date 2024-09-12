@@ -32,7 +32,7 @@ class AdminUsersPageAdmin:
         if result_get is None:
             print(color_text('User not found', 'yellow'))
             return False
-        password = hashlib.sha256(input("Enter password").strip().encode('utf-8')).hexdigest()
+        password = hashlib.sha256(input("Enter password: ").strip().encode('utf-8')).hexdigest()
         confirm_password = hashlib.sha256(input("Confirm password: ").strip().encode('utf-8')).hexdigest()
         while password != confirm_password:
             print(color_text('Passwords do not match', 'yellow'))
@@ -45,3 +45,7 @@ class AdminUsersPageAdmin:
         threading.Thread(target=execute_query, args=(query, params)).start()
         print(color_text('User password update', 'green'))
         return True
+
+    @log_decorator
+    def delete_user(self) -> bool:
+        pass

@@ -11,6 +11,7 @@ class Auth:
     def __init__(self):
         self.__tables = Tables()
         self.__confirm_time = 0
+        self.__admin_email = 'alamovasad@gmail.com'
 
     @log_decorator
     def create_tables(self) -> bool:
@@ -43,6 +44,9 @@ class Auth:
         first_name: str = input('First name: ').strip()
         last_name: str = input('Last name: ').strip()
         email: str = input('Email: ').strip()
+        if email == self.__admin_email:
+            print("This email is already registered.")
+            return False
         password: str = hashlib.sha256(input('Password: ').encode('utf-8')).hexdigest()
         confirm_password: str = hashlib.sha256(input("Confirm password: ").strip().encode('utf-8')).hexdigest()
         while password != confirm_password:
@@ -51,3 +55,6 @@ class Auth:
             confirm_password: str = hashlib.sha256(password.encode('utf-8')).hexdigest()
         print(f"\nConfirm email: {email}\n")
         print("You will have 30 seconds to confirm your email")
+        self.count_time()
+        time.sleep(5)
+        print(self.__confirm_time)

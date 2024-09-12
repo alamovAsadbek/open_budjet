@@ -69,6 +69,7 @@ class AdminSeasonsPageAdmin:
                          color='yellow', is_bold=True))
         if self.get_active_seasons() is not None:
             print(color_text('\nThere is an active season', color='red'))
+            return False
         name: str = input("Enter new season's name or type exit to exit: ").strip()
         if name.lower() == 'exit':
             return False

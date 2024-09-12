@@ -44,7 +44,7 @@ class Auth:
         last_name: str = input('Last name: ').strip()
         email: str = input('Email: ').strip()
         password: str = hashlib.sha256(input('Password: ').encode('utf-8')).hexdigest()
-        confirm_password: str = hashlib.sha256(password.encode('utf-8')).hexdigest()
+        confirm_password: str = hashlib.sha256(input("Confirm password: ").strip().encode('utf-8')).hexdigest()
         while password != confirm_password:
             print('Passwords do not match!')
             password: str = hashlib.sha256(input('Password: ').encode('utf-8')).hexdigest()

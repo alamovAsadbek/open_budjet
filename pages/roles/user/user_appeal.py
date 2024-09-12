@@ -11,7 +11,9 @@ class UserAppealPageUser:
         pagination = Pagination(table_name='categories', table_keys=['id', 'name'],
                                 display_keys=['ID', 'Name'])
         pagination.page_tab()
-        category_id: int = int(input("Enter the category ID: ").strip())
+        category_id: int = int(input("Enter the category ID or enter 0 to exit: ").strip())
+        if category_id == 0:
+            return False
         print(color_text('Checked...', 'cyan'))
         query = '''
         SELECT * FROM categories WHERE ID=%s;

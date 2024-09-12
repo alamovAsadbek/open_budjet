@@ -34,5 +34,6 @@ class AdminCategoryPageAdmin:
         print(color_text("Waiting...", color='cyan'))
         pagination = Pagination(table_name='categories', table_keys=['id', 'name'],
                                 display_keys=['ID', "Name"])
-        pagination.page_tab()
+        if not pagination.page_tab():
+            return False
         return True

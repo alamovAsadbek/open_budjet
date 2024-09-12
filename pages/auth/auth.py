@@ -1,9 +1,10 @@
+from components.tables.tables import Tables
 from main_files.decorator.decorator_func import log_decorator
 
 
 class Auth:
     def __init__(self):
-        pass
+        self.__tables = Tables()
 
     @log_decorator
     def login(self):

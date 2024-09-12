@@ -13,5 +13,5 @@ class AdminUsersPageAdmin:
         return True
 
     @log_decorator
-    def update_users(self) -> bool:
+    def update_user(self) -> bool:
         print(color_text('Waiting...', 'cyan'))

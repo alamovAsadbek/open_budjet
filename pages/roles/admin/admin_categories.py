@@ -21,7 +21,10 @@ class AdminCategoryPageAdmin:
     def update_category(self) -> bool:
         if not self.show_all_categories():
             return False
-        category_id: int = int(input("Enter category id: ").strip())
+        category_id: int = int(input("Enter category id or type 0 to exit: ").strip())
+        if category_id == 0:
+            print("Exit")
+            return True
         print(color_text("Waiting...", color='cyan', is_bold=True))
         query = '''
         SELECT * FROM categories WHERE id=%s;

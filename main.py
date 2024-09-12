@@ -66,6 +66,11 @@ def user_menu():
 
 
 @log_decorator
+def user_season_menu():
+    pass
+
+
+@log_decorator
 def admin_menu():
     text = '''
 1. Appeals

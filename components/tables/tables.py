@@ -21,4 +21,12 @@ class Tables:
 
     @log_decorator
     def create_categories_table(self):
-        pass
+        query = '''
+        CREATE TABLE IF NOT EXISTS categories (
+        ID BIGSERIAL PRIMARY KEY,
+        NAME VARCHAR(255) NOT NULL,
+        STATUS BOOLEAN NOT NULL DEFAULT TRUE
+        )
+        '''
+        execute_query(query)
+        return True

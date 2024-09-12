@@ -2,6 +2,7 @@ import hashlib
 import threading
 import time
 
+from components.email_sender.email_sender import EmailSender
 from components.tables.tables import Tables
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
@@ -12,6 +13,7 @@ class Auth:
         self.__tables = Tables()
         self.__confirm_time = 0
         self.__admin_email = 'alamovasad@gmail.com'
+        self.__email_sender = EmailSender()
 
     @log_decorator
     def create_tables(self) -> bool:

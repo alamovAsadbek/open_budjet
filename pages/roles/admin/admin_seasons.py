@@ -1,3 +1,4 @@
+from components.color_text.color_text import color_text
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
 
@@ -17,4 +18,5 @@ class AdminSeasonsPageAdmin:
 
     @log_decorator
     def create_seasons(self):
-        print(self.get_categories())
+        print(color_text('Waiting...', color='cyan'))
+        all_categories = self.get_categories()

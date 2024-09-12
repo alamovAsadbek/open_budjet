@@ -67,6 +67,10 @@ class Auth:
             print(color_text('Passwords do not match!', color='red', is_bold=True))
             password: str = hashlib.sha256(input('Password: ').encode('utf-8')).hexdigest()
             confirm_password: str = hashlib.sha256(input("Confirm password: ").strip().encode('utf-8')).hexdigest()
+        print("Waiting...")
+        if self.check_email(email):
+            print("Email already registered.")
+            return False
         print(f"\n{color_text(text='Confirm email: ', color='blue')}{email}\n")
         print("You will have 30 seconds to confirm your email")
         threading.Thread(target=self.count_time).start()

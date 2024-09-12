@@ -1,5 +1,6 @@
 from main_files.decorator.decorator_func import log_decorator
 from pages.auth.auth import Auth
+from pages.roles.admin.admin import Admin
 
 
 @log_decorator
@@ -162,7 +163,7 @@ def admin_categories_menu():
     try:
         user_input: int = int(input("Choose menu: ").strip())
         if user_input == 1:
-            pass
+            admin.create_new_category()
         elif user_input == 2:
             pass
         elif user_input == 3:
@@ -210,4 +211,5 @@ if __name__ == '__main__':
     print("Waiting...")
     auth = Auth()
     auth.logout()
+    admin = Admin()
     auth_menu()

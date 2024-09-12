@@ -14,8 +14,9 @@ class Admin:
 
     # season menu
     @log_decorator
-    def create_new_season(self):
-        pass
+    def create_new_season(self) -> bool:
+        self.__season_menu.create_seasons()
+        return True
 
     # / season menu
 

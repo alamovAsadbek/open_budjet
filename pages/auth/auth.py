@@ -24,7 +24,7 @@ class Auth:
         for i in range(30):
             time.sleep(1)
             self.__confirm_time += 1
-            yield True
+        return True
 
     @log_decorator
     def login(self) -> bool:
@@ -52,9 +52,9 @@ class Auth:
         while password != confirm_password:
             print('Passwords do not match!')
             password: str = hashlib.sha256(input('Password: ').encode('utf-8')).hexdigest()
-            confirm_password: str = hashlib.sha256(password.encode('utf-8')).hexdigest()
+            confirm_password: str = hashlib.sha256(input("Confirm password").strip().encode('utf-8')).hexdigest()
         print(f"\nConfirm email: {email}\n")
         print("You will have 30 seconds to confirm your email")
-        self.count_time()
-        time.sleep(5)
-        print(self.__confirm_time)
+        threading.Thread(target=self.count_time).start()
+        while True:
+            confirm_code: int = int(input("\nConfirm code: "))

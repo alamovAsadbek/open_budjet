@@ -7,6 +7,10 @@ class Auth:
         self.__tables = Tables()
 
     @log_decorator
+    def create_tables(self):
+        pass
+
+    @log_decorator
     def login(self):
         pass
 

@@ -173,6 +173,11 @@ def admin_categories_menu():
         admin_categories_menu()
 
 
+@log_decorator
+def admin_users_menu():
+    pass
+
+
 if __name__ == '__main__':
     print("Waiting...")
     auth = Auth()

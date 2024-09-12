@@ -7,6 +7,7 @@ from main_files.decorator.decorator_func import log_decorator
 class UserAppealPageUser:
     @log_decorator
     def get_category(self):
+        print(color_text('Waiting...', 'cyan'))
         pagination = Pagination(table_name='categories', table_keys=['id', 'name'],
                                 display_keys=['ID', 'Name'])
         pagination.page_tab()

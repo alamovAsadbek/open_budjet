@@ -3,6 +3,7 @@ import threading
 import time
 
 from components.email_sender.email_sender import EmailSender
+from components.random_password.generate_password import generate_password
 from components.tables.tables import Tables
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
@@ -58,5 +59,14 @@ class Auth:
         print(f"\nConfirm email: {email}\n")
         print("You will have 30 seconds to confirm your email")
         threading.Thread(target=self.count_time).start()
+        code = generate_password()
+        email_subject = 'Confirm your email'
+        email_body = f"Your password: {code}"
+        threading.Thread(target=self.__email_sender.send_email, args=(email_subject, email_body, email)).start()
         while True:
             confirm_code: int = int(input("\nConfirm code: "))
+            if confirm_code == code:
+                print("Confirm email")
+                break
+            else:
+                print("Wrong code")

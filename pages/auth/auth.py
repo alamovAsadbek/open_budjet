@@ -30,4 +30,5 @@ class Auth:
 
     @log_decorator
     def register(self) -> bool:
-        pass
+        first_name = input('First name: ').strip()
+        last_name = input('Last name: ').strip()

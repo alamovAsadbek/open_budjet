@@ -45,4 +45,6 @@ class AdminSeasonsPageAdmin:
         if all_categories is None or len(all_categories) == 0:
             print(color_text('There are no categories', color='yellow', is_bold=True))
             return False
-        print(all_categories)
+        get_region = self.switch_region()
+        if get_region is False:
+            return False

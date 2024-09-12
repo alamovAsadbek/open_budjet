@@ -36,7 +36,6 @@ class Pagination:
                 return False
             result_data = self.get_page_data(page_number, page_size, datas)
             for data in result_data:
-                print("\n")
                 for display_key, table_key in zip(self.display_keys, self.table_keys):
                     print(f"{display_key}: {data[f'{table_key}']}")
             print(

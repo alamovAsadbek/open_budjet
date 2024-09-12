@@ -22,7 +22,8 @@ class Admin:
     # category menu
 
     @log_decorator
-    def create_new_category(self):
-        pass
-    
+    def create_new_category(self) -> bool:
+        self.__categories_menu.create_category()
+        return True
+
     # /category menu

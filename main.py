@@ -94,7 +94,17 @@ def user_season_menu():
 
 @log_decorator
 def user_appeal_menu():
-    pass
+    text = '''
+1. Send appeal
+2. My request
+3. Back
+    '''
+    print(text)
+    try:
+        pass
+    except Exception as e:
+        print(f'Error: {e}')
+        user_appeal_menu()
 
 
 @log_decorator

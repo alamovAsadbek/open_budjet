@@ -30,3 +30,6 @@ class AdminUsersPageAdmin:
             print(color_text('User not found', 'yellow'))
             return False
         password = hashlib.sha256(input("Enter password").strip().encode('utf-8')).hexdigest()
+        confirm_password = hashlib.sha256(input("Confirm password: ").strip().encode('utf-8')).hexdigest()
+        while password != confirm_password:
+            pass

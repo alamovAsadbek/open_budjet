@@ -13,19 +13,19 @@ class Pagination:
         self.display_keys = display_keys
 
     @log_decorator
-    def __read_table(self):
+    def __read_table(self) -> list:
         query = "SELECT * FROM {}".format(self.table_name)
         if self.user_id is not None:
             query += " WHERE user_id = '{}'".format(self.user_id)
         return execute_query(query, fetch='all')
 
     @log_decorator
-    def get_page_data(self, page_number=1, page_size=2, table_data=None):
+    def get_page_data(self, page_number=1, page_size=2, table_data=None) -> list:
         result_data = table_data[(page_number - 1) * page_size: (page_number - 1) * page_size + page_size]
         return result_data
 
     @log_decorator
-    def page_tab(self, page_number: int = 1, page_size=2):
+    def page_tab(self, page_number: int = 1, page_size=2) -> bool or None:
         datas = self.data
         if datas is None:
             datas = self.__read_table()

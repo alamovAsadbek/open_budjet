@@ -30,4 +30,8 @@ class Admin:
     def show_all_categories(self) -> bool:
         self.__categories_menu.show_all_categories()
         return True
+
+    @log_decorator
+    def update_category(self) -> bool:
+        pass
     # /category menu

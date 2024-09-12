@@ -79,11 +79,11 @@ def admin_menu():
         if admin_input == 1:
             admin_appeals_menu()
         elif admin_input == 2:
-            pass
+            admin_seasons_menu()
         elif admin_input == 3:
-            pass
+            admin_categories_menu()
         elif admin_input == 4:
-            pass
+            admin_users_menu()
         elif admin_input == 5:
             print("Exit")
             auth_menu()

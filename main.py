@@ -126,7 +126,7 @@ def admin_appeals_menu():
 def admin_seasons_menu():
     text = '''
 1. Create new season
-2. Update existing season
+2. Update existing season's status
 3. Statistics
 4. Back
     '''

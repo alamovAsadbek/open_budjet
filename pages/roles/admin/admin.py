@@ -57,5 +57,6 @@ class Admin:
     # users menu
     @log_decorator
     def show_all_users(self) -> bool:
-        pass
+        self.__users_menu.show_all_users()
+        return True
     # / users menu

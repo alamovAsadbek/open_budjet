@@ -12,6 +12,11 @@ class UserAppealPageUser:
         pagination.page_tab()
         category_id: int = int(input("Enter the category ID: ").strip())
         print(color_text('Checked...', 'cyan'))
+        query = '''
+        SELECT * FROM categories WHERE ID=%s;
+        '''
+        result_get = execute_query(query, (category_id,), 'one')
+        return result_get
 
     @log_decorator
     def switch_region(self) -> bool or list:

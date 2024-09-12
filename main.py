@@ -157,7 +157,17 @@ def admin_categories_menu():
     '''
     print(text)
     try:
-        pass
+        user_input: int = int(input("Choose menu: ").strip())
+        if user_input == 1:
+            pass
+        elif user_input == 2:
+            pass
+        elif user_input == 3:
+            pass
+        elif user_input == 4:
+            pass
+        elif user_input == 5:
+            admin_menu()
     except Exception as e:
         print(f'Error: {e}')
         admin_categories_menu()

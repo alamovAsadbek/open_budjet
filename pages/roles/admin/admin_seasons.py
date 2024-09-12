@@ -117,3 +117,7 @@ class AdminSeasonsPageAdmin:
             threading.Thread(target=execute_query, args=(query, params,)).start()
             print(color_text('Updated Season', color='green'))
             return True
+
+    @log_decorator
+    def show_all_seasons(self):
+        pass

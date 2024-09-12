@@ -80,7 +80,7 @@ class AdminSeasonsPageAdmin:
         return True
 
     @log_decorator
-    def get_active_season(self):
+    def get_active_seasons(self):
         query = '''
                 SELECT * FROM seasons WHERE status='not_started' or status='appeal' or status='vote';
                 '''

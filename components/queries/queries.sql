@@ -338,3 +338,8 @@ WHERE id = '%s';
 SELECT *
 FROM categories
 WHERE status = TRUE;
+
+-- Districts ro'yhatini olish uchun query
+select d.ID as d_id, d.name as d_name, r.NAME as r_name
+from districts d
+         inner join regions r on d.REGION_ID = r.ID;

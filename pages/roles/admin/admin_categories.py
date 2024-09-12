@@ -50,3 +50,7 @@ class AdminCategoryPageAdmin:
         if not pagination.page_tab():
             return False
         return True
+
+    @log_decorator
+    def delete_category(self) -> bool:
+        pass

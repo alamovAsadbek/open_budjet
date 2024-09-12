@@ -5,7 +5,10 @@ from main_files.decorator.decorator_func import log_decorator
 
 class EmailSender:
     def __init__(self):
-        pass
+        self.smtp_server = 'smtp.gmail.com'
+        self.port = 587
+        self.sender_email = '<EMAIL>'
+        self.password = '<PASSWORD>'
 
     @log_decorator
     @contextlib.contextmanager

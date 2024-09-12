@@ -61,3 +61,19 @@ class AdminUsersPageAdmin:
         if result_get is None:
             print(color_text('User not found', 'yellow'))
             return False
+        print(f"\nID: {result_get['id']}\nFirst name: {result_get['first_name']}\n"
+              f"Last name: {result_get['last_name']}\nEmail: {result_get['email']}\n"
+              f"Registered: {result_get['created_at']}\n")
+        confirm_delete: str = input("Confirm delete? (y/n) ").strip().lower()
+        if confirm_delete == 'y':
+            query = '''
+            DELETE FROM users WHERE id=%s;
+            '''
+            params = (user_id,)
+            threading.Thread(target=execute_query, args=(query, params)).start()
+            print(color_text('Deleting user...', 'green'))
+        elif confirm_delete == 'n':
+            print(color_text('Cancel', 'red'))
+        else:
+            print(color_text('Invalid input', 'yellow'))
+            return False

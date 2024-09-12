@@ -75,7 +75,18 @@ def user_season_menu():
     '''
     print(text)
     try:
-        pass
+        user_input: int = int(input("Choose menu: ").strip())
+        if user_input == 1:
+            pass
+        elif user_input == 2:
+            pass
+        elif user_input == 3:
+            pass
+        elif user_input == 4:
+            user_menu()
+        else:
+            print('Wrong input')
+        user_season_menu()
     except Exception as e:
         print(f'Error: {e}')
         user_season_menu()

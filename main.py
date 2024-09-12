@@ -30,7 +30,20 @@ def auth_menu():
 
 @log_decorator
 def admin_menu():
-    pass
+    text = '''
+1. Statistics
+2. Appeals
+3. Season
+4. Categories
+5. Users
+6. Logout
+    '''
+    print(text)
+    try:
+        pass
+    except Exception as e:
+        print(f'Error: {e}')
+        admin_menu()
 
 
 if __name__ == '__main__':

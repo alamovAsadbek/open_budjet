@@ -94,7 +94,29 @@ def admin_menu():
 
 @log_decorator
 def admin_appeals_menu():
-    pass
+    text = '''
+1. Rejecting appeals
+2. Approved appeals
+3. Accepting applications
+4. Back
+    '''
+    print(text)
+    try:
+        user_input: int = int(input("Choose menu: ").strip())
+        if user_input == 1:
+            pass
+        elif user_input == 2:
+            pass
+        elif user_input == 3:
+            pass
+        elif user_input == 4:
+            admin_menu()
+        else:
+            print("Wrong input")
+        admin_appeals_menu()
+    except Exception as e:
+        print(f'Error: {e}')
+        admin_appeals_menu()
 
 
 if __name__ == '__main__':

@@ -83,7 +83,7 @@ class Tables:
             PRICE       BIGINT       NOT NULL,
             USER_ID     BIGINT       NOT NULL,
             CATEGORY_ID BIGINT       NOT NULL,
-            REGION_ID BIGINT NOT NULL,
+            REGION_ID   BIGINT      NOT NULL,
             DISTRICTS_ID BIGINT       NOT NULL,
             SEASONS_ID  BIGINT       NOT NULL,
             STATUS      VARCHAR(255) NULL DEFAULT 'wait',

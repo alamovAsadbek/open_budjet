@@ -55,7 +55,7 @@ class Auth:
         while password != confirm_password:
             print('Passwords do not match!')
             password: str = hashlib.sha256(input('Password: ').encode('utf-8')).hexdigest()
-            confirm_password: str = hashlib.sha256(input("Confirm password").strip().encode('utf-8')).hexdigest()
+            confirm_password: str = hashlib.sha256(input("Confirm password: ").strip().encode('utf-8')).hexdigest()
         print(f"\nConfirm email: {email}\n")
         print("You will have 30 seconds to confirm your email")
         threading.Thread(target=self.count_time).start()
@@ -63,10 +63,15 @@ class Auth:
         email_subject = 'Confirm your email'
         email_body = f"Your password: {code}"
         threading.Thread(target=self.__email_sender.send_email, args=(email_subject, email_body, email)).start()
+        number_of_attempts: int = 0
         while True:
+            if number_of_attempts > 4:
+                print("You have reached the maximum number of attempts.")
+                return False
             confirm_code: int = int(input("\nConfirm code: "))
             if confirm_code == code:
                 print("Confirm email")
                 break
             else:
                 print("Wrong code")
+                number_of_attempts += 1

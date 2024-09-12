@@ -13,11 +13,11 @@ def auth_menu():
     try:
         user_input: int = int(input("Choose menu: ").strip())
         if user_input == 1:
-            pass
+            auth.register()
         elif user_input == 2:
-            pass
+            auth.login()
         elif user_input == 3:
-            pass
+            auth.logout()
         else:
             print("Wrong input")
         auth_menu()

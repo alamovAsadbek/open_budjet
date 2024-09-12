@@ -39,4 +39,6 @@ class UserAppealPageUser:
 
     @log_decorator
     def send_request(self):
-        pass
+        get_category = self.get_category()
+        if get_category is None or get_category is False:
+            return False

@@ -29,6 +29,8 @@ class AdminCategoryPageAdmin:
         result_get = execute_query(query, (category_id,), fetch='one')
         if result_get is None:
             print(color_text("Category not found", color='yellow', is_bold=True))
+            return False
+        print(f"\nCategory ID: {result_get['id']}\nCategory name: {result_get['name']}")
 
     @log_decorator
     def show_all_categories(self) -> bool:

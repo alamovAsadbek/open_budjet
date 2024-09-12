@@ -1,3 +1,5 @@
+import threading
+
 from components.color_text.color_text import color_text
 from components.pagination.pagination import Pagination
 from main_files.database.db_setting import execute_query
@@ -65,15 +67,12 @@ class AdminSeasonsPageAdmin:
         print(color_text('Waiting...', color='cyan'))
         print(color_text('Check out the first categories to create a new season. Then the categories cannot be changed',
                          color='yellow', is_bold=True))
-        all_categories = self.get_categories()
-        print(all_categories)
-        # if all_categories is None or len(all_categories) == 0:
-        #     print(color_text('There are no categories', color='yellow', is_bold=True))
-        #     return False
-        # get_region = self.switch_region()
-        # if get_region is False:
-        #     return False
-        # get_district = self.switch_districts()
-        # if get_district is None:
-        #     return False
-        # print(get_region, get_district)
+        name: str = input("Enter new season's name or type exit to exit: ").strip()
+        if name.lower() == 'exit':
+            return False
+        query = '''
+        INSERT INTO seasons (name) VALUES (%s);
+        '''
+        threading.Thread(target=execute_query, args=(query, (name,),)).start()
+        print(color_text('Create Season', color='green'))
+        return True

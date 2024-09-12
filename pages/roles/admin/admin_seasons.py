@@ -76,3 +76,7 @@ class AdminSeasonsPageAdmin:
         threading.Thread(target=execute_query, args=(query, (name,),)).start()
         print(color_text('Create Season', color='green'))
         return True
+
+    @log_decorator
+    def update_status(self):
+        pass

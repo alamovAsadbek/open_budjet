@@ -37,7 +37,7 @@ class AdminSeasonsPageAdmin:
         return result_get
 
     @log_decorator
-    def (self) -> bool:
+    def switch_country(self) -> bool:
         print(color_text("Switch districts", color='blue'))
         query = '''
         select d.ID as d_id, d.name as d_name, r.NAME as r_name from districts d inner join regions r on d.REGION_ID = r.ID;

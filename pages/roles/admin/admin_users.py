@@ -1,0 +1,2 @@
+class AdminUsersPageAdmin:
+    pass

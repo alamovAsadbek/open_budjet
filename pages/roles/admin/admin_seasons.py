@@ -72,4 +72,7 @@ class AdminSeasonsPageAdmin:
         get_region = self.switch_region()
         if get_region is False:
             return False
-        get
+        get_district = self.switch_districts()
+        if get_district is None:
+            return False
+        print(get_region, get_district)

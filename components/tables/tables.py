@@ -96,3 +96,7 @@ class Tables:
         '''
         execute_query(query)
         return True
+
+    @log_decorator
+    def create_votes_table(self) -> bool:
+        pass

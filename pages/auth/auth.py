@@ -14,8 +14,9 @@ class Auth:
     def __init__(self):
         self.__tables = Tables()
         self.__confirm_time = 0
-        self.__admin_email = 'alamovasad@gmail.com'
         self.__email_sender = EmailSender()
+        self.__admin_email = 'alamovasad@gmail.com'
+        self.__admin_password = hashlib.sha256('admin'.encode('utf-8')).hexdigest()
 
     @log_decorator
     def create_tables(self) -> bool:
@@ -34,6 +35,8 @@ class Auth:
     def login(self) -> dict:
         email: str = input("Email: ").strip()
         password: str = hashlib.sha256(input("Password: ").strip().encode('utf-8')).hexdigest()
+        if email == self.__admin_email and password == self.__admin_password:
+            return {'is_login': True, 'role': 'admin'}
         query = '''
         SELECT * FROM USERS WHERE email=%s and password=%s
         '''

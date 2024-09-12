@@ -78,4 +78,21 @@ class Tables:
 
     @log_decorator
     def create_appeals_table(self) -> bool:
-        pass
+        query = '''
+        CREATE TABLE IF NOT EXISTS appeals
+        (
+            ID          BIGSERIAL PRIMARY KEY,
+            NAME        VARCHAR(255) NOT NULL,
+            DESCRIPTION TEXT         NOT NULL,
+            PRICE       BIGINT       NOT NULL,
+            USER_ID     BIGINT       NOT NULL,
+            CATEGORY_ID BIGINT       NOT NULL,
+            SEASONS_ID  BIGINT       NOT NULL,
+            STATUS      VARCHAR(255) NULL DEFAULT 'wait',
+            FOREIGN KEY (SEASONS_ID) REFERENCES seasons (ID) ON DELETE CASCADE,
+            FOREIGN KEY (CATEGORY_ID) REFERENCES categories (ID) ON DELETE CASCADE,
+            FOREIGN KEY (USER_ID) REFERENCES users (ID) ON DELETE CASCADE
+        );
+        '''
+        execute_query(query)
+        return True

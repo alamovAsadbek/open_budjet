@@ -41,6 +41,30 @@ FROM USERS
 WHERE email = '% s'
   and password = '% s';
 
+-- regions tableni yaratish uchun query
+CREATE TABLE IF NOT EXISTS regions
+(
+    ID   BIGSERIAL PRIMARY KEY,
+    NAME VARCHAR(255) NOT NULL
+);
+
+-- districts tableni yaratish uchun query
+CREATE TABLE IF NOT EXISTS districts
+(
+    ID        BIGSERIAL PRIMARY KEY,
+    NAME      VARCHAR(255) NOT NULL,
+    REGION_ID BIGINT       NOT NULL,
+    FOREIGN KEY (REGION_ID) REFERENCES regions (ID) ON DELETE CASCADE
+)
+--Seasons tableni yaratish uchun query
+CREATE TABLE IF NOT EXISTS SEASONS
+(
+    ID            BIGINT PRIMARY KEY,
+    NAME          VARCHAR(255) NOT NULL,
+    CATEGORIES_ID jsonb,
+    REGION
+)
+
 -- Appeals tableni yaratish uchun query
 CREATE TABLE IF NOT EXISTS appeals
 (

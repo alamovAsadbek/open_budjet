@@ -30,7 +30,14 @@ class AdminCategoryPageAdmin:
         if result_get is None:
             print(color_text("Category not found", color='yellow', is_bold=True))
             return False
-        print(f"\nCategory ID: {result_get['id']}\nCategory name: {result_get['name']}")
+        print(f"\nCategory ID: {result_get['id']}\nCategory name: {result_get['name']}\n")
+        name: str = input("Enter category new name: ").strip()
+        query = '''
+        UPDATE categories SET name=%s WHERE id=%s;
+        '''
+        threading.Thread(target=execute_query, args=(query, (name,))).start()
+        print(color_text("Category updated successfully", color='green', is_bold=True))
+        return True
 
     @log_decorator
     def show_all_categories(self) -> bool:

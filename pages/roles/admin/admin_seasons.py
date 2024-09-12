@@ -10,11 +10,11 @@ class AdminSeasonsPageAdmin:
     @log_decorator
     def get_categories(self):
         query = '''
-        SELECT * FROM categories;
+        SELECT * FROM categories WHERE status=TRUE;
         '''
         result_get = execute_query(query, fetch='all')
         return result_get
 
     @log_decorator
     def create_seasons(self):
-        self.get_categories()
+        print(self.get_categories())

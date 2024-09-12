@@ -67,12 +67,11 @@ def user_menu():
 @log_decorator
 def admin_menu():
     text = '''
-1. Statistics
-2. Appeals
-3. Season
-4. Categories
-5. Users
-6. Logout
+1. Appeals
+2. Season
+3. Categories
+4. Users
+5. Logout
     '''
     print(text)
     try:
@@ -86,8 +85,6 @@ def admin_menu():
         elif admin_input == 4:
             pass
         elif admin_input == 5:
-            pass
-        elif admin_input == 6:
             print("Exit")
             auth_menu()
     except Exception as e:

@@ -19,7 +19,14 @@ class AdminCategoryPageAdmin:
 
     @log_decorator
     def update_category(self) -> bool:
-        pass
+        category_id: int = int(input("Enter category id: ").strip())
+        print(color_text("Waiting...", color='magenta', is_bold=True))
+        query = '''
+        SELECT * FROM categories WHERE id=%s;
+        '''
+        result_get = execute_query(query, (category_id,))
+        if result_get is None:
+            print(color_text("Category not found", color='yellow', is_bold=True))
 
     @log_decorator
     def show_all_categories(self) -> bool:

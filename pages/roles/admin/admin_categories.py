@@ -1,5 +1,6 @@
 import threading
 
+from components.color_text.color_text import color_text
 from components.pagination.pagination import Pagination
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
@@ -13,7 +14,8 @@ class AdminCategoryPageAdmin:
         INSERT INTO categories (name) VALUES (%s);
         '''
         threading.Thread(target=execute_query, args=(query, (name,))).start()
-        print("Category created successfully")
+        print(color_text("Category created successfully", color='green', is_bold=True))
+        print()
         return True
 
     @log_decorator

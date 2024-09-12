@@ -2,6 +2,9 @@ from main_files.decorator.decorator_func import log_decorator
 
 
 class Auth:
+    def __init__(self):
+        pass
+
     @log_decorator
     def login(self):
         pass

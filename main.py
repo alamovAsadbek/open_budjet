@@ -8,3 +8,8 @@ def auth_menu():
 2. Login
 3. Logout
     '''
+    print(text)
+    try:
+        pass
+    except Exception as e:
+        pass

@@ -77,6 +77,10 @@ class UserAppealPageUser:
 
     @log_decorator
     def send_request(self):
+        active_season = self.get_active_season()
+        if active_season is None or active_season is False:
+            print(color_text('Active season not found', 'red'))
+            return False
         get_category = self.get_category()
         if get_category is None or get_category is False:
             print(color_text('Category not found', 'red'))

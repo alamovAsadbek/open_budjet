@@ -17,7 +17,9 @@ def auth_menu():
         elif user_input == 2:
             auth.login()
         elif user_input == 3:
+            print("Waiting...")
             auth.logout()
+            return
         else:
             print("Wrong input")
         auth_menu()

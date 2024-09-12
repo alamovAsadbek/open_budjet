@@ -40,7 +40,8 @@ class AdminSeasonsPageAdmin:
     def switch_country(self) -> bool:
         print(color_text("Switch districts", color='blue'))
         query = '''
-        select d.ID as d_id, d.name as d_name, r.NAME as r_name from districts d inner join regions r on d.REGION_ID = r.ID;
+        select d.ID as d_id, d.name as d_name, r.NAME as r_name from districts d 
+        inner join regions r on d.REGION_ID = r.ID;
         '''
         get_districts = execute_query(query, fetch='all')
         pagination = Pagination(table_name='districts', table_keys=['d_id', 'r_name', 'd_name'],

@@ -336,4 +336,5 @@ WHERE id = '%s';
 
 -- barcha categories tabledagi malumotlarni olish uchun query
 SELECT *
-FROM categories;
+FROM categories
+WHERE status = TRUE;

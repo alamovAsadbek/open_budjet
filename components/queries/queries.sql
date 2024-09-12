@@ -39,4 +39,8 @@ CREATE TABLE IF NOT EXISTS categories
     255
 ) NOT NULL,
     STATUS BOOLEAN NOT NULL DEFAULT TRUE
-    )
+    );
+
+-- userlarni logout qilish uchun query
+UPDATE users SET is_login=FALSE;
+

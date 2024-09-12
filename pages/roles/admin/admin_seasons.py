@@ -83,7 +83,7 @@ class AdminSeasonsPageAdmin:
     def get_active_seasons(self):
         query = '''
                 SELECT * FROM seasons WHERE status='not_started' or status='appeal' or status='vote';
-                '''
+        '''
         result_get = execute_query(query, fetch='one')
         return result_get
 

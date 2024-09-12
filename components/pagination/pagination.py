@@ -32,7 +32,7 @@ class Pagination:
             datas = self.__read_table()
         while True:
             if datas is None or len(datas) == 0:
-                print("Data not found")
+                print(color_text("Data not found", color='yellow', is_bold=True))
                 return False
             result_data = self.get_page_data(page_number, page_size, datas)
             for data in result_data:

@@ -68,14 +68,15 @@ class Auth:
         while True:
             confirm_code: int = int(input("Confirm code: "))
             if number_of_attempts > 2:
-                print("You have reached the maximum number of attempts. Please try again.")
+                print(color_text("You have reached the maximum number of attempts. Please try again.", color='red',
+                                 is_bold=True))
                 return False
             elif self.__confirm_time >= 30:
-                print("Time is over. Please try again.")
+                print(color_text("Time is over. Please try again.", color='red', is_bold=True))
                 return False
             print(f"Number of attempts: {number_of_attempts + 1}")
             if confirm_code == code:
-                print("Confirm email")
+                print(color_text('Confirm email', color='green', is_bold=True))
                 break
             else:
                 print("Wrong code")
@@ -85,5 +86,5 @@ class Auth:
         '''
         params = (first_name, last_name, email, password)
         threading.Thread(target=execute_query, args=(query, params)).start()
-        print("Registered successfully")
+        print(color_text("Registered successfully", color='green', is_bold=True))
         return True

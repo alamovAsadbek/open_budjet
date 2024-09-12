@@ -124,7 +124,18 @@ def admin_appeals_menu():
 
 @log_decorator
 def admin_seasons_menu():
-    pass
+    text = '''
+1. Create new season
+2. Update existing season
+3. Statistics
+4. Back
+    '''
+    print(text)
+    try:
+        pass
+    except Exception as e:
+        print(f'Error: {e}')
+        admin_seasons_menu()
 
 
 if __name__ == '__main__':

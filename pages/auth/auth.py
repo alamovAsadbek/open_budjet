@@ -44,6 +44,10 @@ class Auth:
         return True
 
     @log_decorator
+    def check_email(self) -> bool:
+        pass
+
+    @log_decorator
     def register(self) -> bool:
         first_name: str = input('First name: ').strip()
         last_name: str = input('Last name: ').strip()

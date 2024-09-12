@@ -167,7 +167,7 @@ def admin_categories_menu():
         elif user_input == 2:
             admin.update_category()
         elif user_input == 3:
-            pass
+            admin.delete_category()
         elif user_input == 4:
             admin.show_all_categories()
         elif user_input == 5:

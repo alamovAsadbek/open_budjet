@@ -66,7 +66,7 @@ class Tables:
             NAME          VARCHAR(255) NOT NULL,
             CATEGORIES_ID jsonb,
             STATUS        VARCHAR(255) NULL DEFAULT 'not_started',
-            CREATED_AT    TIMESTAMP    NULL DEFAULT CURRENT_TIMESTAMP,
+            CREATED_AT    TIMESTAMP    NULL DEFAULT CURRENT_TIMESTAMP
         );
         '''
         execute_query(query)

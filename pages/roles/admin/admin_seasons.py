@@ -88,7 +88,7 @@ class AdminSeasonsPageAdmin:
         return result_get
 
     @log_decorator
-    def update_status(self):
+    def update_status(self) -> bool:
         print(color_text('Waiting...', color='cyan'))
         active_seasons = self.get_active_seasons()
         if active_seasons is None:
@@ -96,3 +96,24 @@ class AdminSeasonsPageAdmin:
             return False
         print(f"\nSeason ID: {active_seasons['id']}\nSeason Name: {active_seasons['name']}\n"
               f"Status: {active_seasons['status']}\nCreated At: {active_seasons['created_at']}\n")
+        while True:
+            print(f"\n1. Pause\t2. Appeal\t3. Vote\t4. End")
+            admin_input: int = int(input("Choose menu: ").strip())
+            if admin_input == 1:
+                status: str = 'not_started'
+            elif admin_input == 2:
+                status: str = 'appeal'
+            elif admin_input == 3:
+                status: str = 'vote'
+            elif admin_input == 4:
+                status: str = 'end'
+            else:
+                print(color_text('Wrong input', color='yellow'))
+                continue
+            query = '''
+            UPDATE seasons SET status=%s WHERE ID=%s;
+            '''
+            params = (status, active_seasons['id'])
+            threading.Thread(target=execute_query, args=(query, params,)).start()
+            print(color_text('Updated Season', color='green'))
+            return True

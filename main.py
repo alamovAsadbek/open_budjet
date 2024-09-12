@@ -15,7 +15,11 @@ def auth_menu():
         if user_input == 1:
             auth.register()
         elif user_input == 2:
-            auth.login()
+            result_login = auth.login()
+            if not result_login['is_login']:
+                auth_menu()
+            elif result_login['role'] == 'admin':
+                admin_menu()
         elif user_input == 3:
             print("Waiting...")
             auth.logout()

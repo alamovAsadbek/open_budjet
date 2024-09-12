@@ -34,7 +34,18 @@ def auth_menu():
 
 @log_decorator
 def user_menu():
-    pass
+    text = '''
+1. Send a request
+2. Season
+3. Profile
+4. Exit
+    '''
+    print(text)
+    try:
+        pass
+    except Exception as e:
+        print(f'Error: {e}')
+        user_menu()
 
 
 @log_decorator

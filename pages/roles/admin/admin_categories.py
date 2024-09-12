@@ -19,6 +19,7 @@ class AdminCategoryPageAdmin:
 
     @log_decorator
     def update_category(self) -> bool:
+        self.show_all_categories()
         category_id: int = int(input("Enter category id: ").strip())
         print(color_text("Waiting...", color='cyan', is_bold=True))
         query = '''

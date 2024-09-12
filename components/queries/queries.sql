@@ -60,10 +60,10 @@ CREATE TABLE IF NOT EXISTS districts
 --Seasons tableni yaratish uchun query
 CREATE TABLE IF NOT EXISTS SEASONS
 (
-    ID            BIGSERIAL PRIMARY KEY,
-    NAME          VARCHAR(255) NOT NULL,
-    STATUS        VARCHAR(255) NULL DEFAULT 'not_started',
-    CREATED_AT    TIMESTAMP    NULL DEFAULT CURRENT_TIMESTAMP
+    ID         BIGSERIAL PRIMARY KEY,
+    NAME       VARCHAR(255) NOT NULL,
+    STATUS     VARCHAR(255) NULL DEFAULT 'not_started',
+    CREATED_AT TIMESTAMP    NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Appeals tableni yaratish uchun query
@@ -342,3 +342,10 @@ WHERE status = TRUE;
 select d.ID as d_id, d.name as d_name, r.NAME as r_name
 from districts d
          inner join regions r on d.REGION_ID = r.ID;
+
+-- Faol bulgan seasonni olish uchun query
+SELECT *
+FROM seasons
+WHERE status = 'not_started'
+   or status = 'appeal'
+   or status = 'vote';

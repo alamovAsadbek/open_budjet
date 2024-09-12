@@ -12,4 +12,5 @@ def auth_menu():
     try:
         pass
     except Exception as e:
-        pass
+        print(f'Error: {e}')
+        auth_menu()

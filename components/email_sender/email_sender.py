@@ -8,7 +8,7 @@ class EmailSender:
         self.smtp_server = 'smtp.gmail.com'
         self.port = 587
         self.sender_email = 'alamovasad@gmail.com'
-        self.password = '<PASSWORD>'
+        self.password = 'fghr vfgj fcjx zqpj'
 
     @log_decorator
     @contextlib.contextmanager

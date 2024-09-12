@@ -40,9 +40,9 @@ class Pagination:
                 for display_key, table_key in zip(self.display_keys, self.table_keys):
                     print(f"{display_key}: {data[f'{table_key}']}")
             print(
-                f"\n{color_text('1', color='blue', is_bold=True)}"
+                f"\n{color_text('1', color='blue', is_bold=True)} - Previous page\t"
                 f"<- {page_number}/{math.ceil(len(datas) / page_size)} -> "
-                f"{color_text('2', color='blue', is_bold=True)}\n")
+                f"\t{color_text('2', color='blue', is_bold=True)} - Next page\n")
             choice = input("Manage pagination, type exit to exit: ").strip()
             if choice == "exit":
                 return True

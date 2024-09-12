@@ -7,7 +7,7 @@ class EmailSender:
     def __init__(self):
         self.smtp_server = 'smtp.gmail.com'
         self.port = 587
-        self.sender_email = '<EMAIL>'
+        self.sender_email = 'alamovasad@gmail.com'
         self.password = '<PASSWORD>'
 
     @log_decorator

@@ -1,5 +1,6 @@
 import hashlib
 import threading
+import time
 
 from components.tables.tables import Tables
 from main_files.database.db_setting import execute_query
@@ -18,8 +19,11 @@ class Auth:
         return True
 
     @log_decorator
-    def count_time(self):
-        pass
+    def count_time(self) -> bool:
+        for i in range(30):
+            time.sleep(1)
+            self.__confirm_time += 1
+            yield True
 
     @log_decorator
     def login(self) -> bool:

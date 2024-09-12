@@ -18,6 +18,10 @@ class Admin:
         self.__season_menu.create_seasons()
         return True
 
+    @log_decorator
+    def update_season_status(self) -> bool:
+        pass
+
     # / season menu
 
     # category menu

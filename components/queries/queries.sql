@@ -45,3 +45,5 @@ CREATE TABLE IF NOT EXISTS categories
 UPDATE users
 SET is_login= FALSE;
 
+-- user kiritgan emailni tekshirish, yani mavjudmi yoki yoqligini
+SELECT * FROM USERS WHERE email='alamovasad55@gmail.com';

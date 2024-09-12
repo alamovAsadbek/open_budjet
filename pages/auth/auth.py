@@ -44,8 +44,10 @@ class Auth:
         return True
 
     @log_decorator
-    def check_email(self) -> bool:
-        pass
+    def check_email(self, email: str) -> bool:
+        query='''
+        
+        '''
 
     @log_decorator
     def register(self) -> bool:

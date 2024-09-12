@@ -65,12 +65,8 @@ class Tables:
             ID            BIGINT PRIMARY KEY,
             NAME          VARCHAR(255) NOT NULL,
             CATEGORIES_ID jsonb,
-            REGION_ID     BIGINT       NOT NULL,
-            DISTRICTS_ID  BIGINT       NOT NULL,
             STATUS        VARCHAR(255) NULL DEFAULT 'not_started',
             CREATED_AT    TIMESTAMP    NULL DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY (REGION_ID) REFERENCES regions (ID) ON DELETE CASCADE,
-            FOREIGN KEY (DISTRICTS_ID) REFERENCES districts (ID) ON DELETE CASCADE
         );
         '''
         execute_query(query)
@@ -87,11 +83,15 @@ class Tables:
             PRICE       BIGINT       NOT NULL,
             USER_ID     BIGINT       NOT NULL,
             CATEGORY_ID BIGINT       NOT NULL,
+            REGION_ID BIGINT NOT NULL,
+            DISTRICTS_ID BIGINT       NOT NULL,
             SEASONS_ID  BIGINT       NOT NULL,
             STATUS      VARCHAR(255) NULL DEFAULT 'wait',
             FOREIGN KEY (SEASONS_ID) REFERENCES seasons (ID) ON DELETE CASCADE,
             FOREIGN KEY (CATEGORY_ID) REFERENCES categories (ID) ON DELETE CASCADE,
-            FOREIGN KEY (USER_ID) REFERENCES users (ID) ON DELETE CASCADE
+            FOREIGN KEY (USER_ID) REFERENCES users (ID) ON DELETE CASCADE,
+            FOREIGN KEY (REGION_ID) REFERENCES regions (ID) ON DELETE CASCADE,
+            FOREIGN KEY (DISTRICTS_ID) REFERENCES districts (ID) ON DELETE CASCADE
         );
         '''
         execute_query(query)

@@ -122,6 +122,11 @@ def admin_appeals_menu():
         admin_appeals_menu()
 
 
+@log_decorator
+def admin_seasons_menu():
+    pass
+
+
 if __name__ == '__main__':
     print("Waiting...")
     auth = Auth()

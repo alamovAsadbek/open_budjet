@@ -41,8 +41,13 @@ class UserAppealPageUser:
         return result_get
 
     @log_decorator
-    def switch_district(self) -> bool or list:
-        pass
+    def switch_district(self, region_id) -> bool or list:
+        print(color_text("Switch district", color='blue'))
+        query = '''
+        SELECT * FROM districts d INNER JOIN regions r ON d.region_id=r.id 
+        WHERE id=%s and region_id=%s;
+        '''
+        result_get = execute_query(query, (region_id,), fetch='all')
 
     @log_decorator
     def send_request(self):

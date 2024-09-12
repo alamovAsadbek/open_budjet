@@ -1,6 +1,7 @@
 from main_files.decorator.decorator_func import log_decorator
 from pages.auth.auth import Auth
 from pages.roles.admin.admin import Admin
+from pages.roles.user.user import User
 
 
 @log_decorator
@@ -103,7 +104,7 @@ def user_appeal_menu():
     try:
         user_input: int = int(input("Choose menu: ").strip())
         if user_input == 1:
-            pass
+            user.send_request()
         elif user_input == 2:
             pass
         elif user_input == 3:
@@ -266,4 +267,5 @@ if __name__ == '__main__':
     auth = Auth()
     auth.logout()
     admin = Admin()
+    user = User()
     auth_menu()

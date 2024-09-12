@@ -21,7 +21,7 @@ def color_text(text, color, is_bold=False):
     elif color == 'white':
         text = f"{Fore.WHITE}{text}{Style.RESET_ALL}"
     else:
-        text = f"{text}{Style.RESET_ALL}"
+        text = f"{Fore.WHITE}{text}{Style.RESET_ALL}"
     if is_bold:
         text = f'{Style.BRIGHT}{text}{Style.RESET_ALL}'
 

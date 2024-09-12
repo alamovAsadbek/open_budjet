@@ -65,8 +65,8 @@ class Auth:
         threading.Thread(target=self.__email_sender.send_email, args=(email_subject, email_body, email)).start()
         number_of_attempts: int = 0
         while True:
-            if number_of_attempts > 4:
-                print("You have reached the maximum number of attempts.")
+            if number_of_attempts > 2:
+                print("You have reached the maximum number of attempts. Please try again.")
                 return False
             print(f"Number of attempts: {number_of_attempts + 1}")
             confirm_code: int = int(input("Confirm code: "))

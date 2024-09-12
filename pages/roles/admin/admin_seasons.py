@@ -19,4 +19,6 @@ class AdminSeasonsPageAdmin:
     @log_decorator
     def create_seasons(self):
         print(color_text('Waiting...', color='cyan'))
+        print(color_text('Check out the first categories to create a new season. Then the categories cannot be changed',
+                         color='yellow', is_bold=True))
         all_categories = self.get_categories()

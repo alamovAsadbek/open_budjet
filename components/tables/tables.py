@@ -4,4 +4,14 @@ from main_files.decorator.decorator_func import log_decorator
 class Tables:
     @log_decorator
     def create_users_table(self):
-        pass
+        query='''
+        CREATE TABLE IF NOT EXISTS users (
+        ID INTEGER PRIMARY KEY,
+        FIRST_NAME VARCHAR(255) NOT NULL,
+        LAST_NAME VARCHAR(255) NOT NULL,
+        EMAIL VARCHAR(255) NOT NULL,
+        PASSWORD VARCHAR(255) NOT NULL,
+        IS_LOGIN BOOLEAN NOT NULL DEFAULT FALSE,
+        CREATED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+        )
+        '''

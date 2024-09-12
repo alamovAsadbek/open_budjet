@@ -8,6 +8,7 @@ class UserAppealPageUser:
     @log_decorator
     def get_category(self):
         print(color_text('Waiting...', 'cyan'))
+        print(color_text("Switch category", color='blue'))
         pagination = Pagination(table_name='categories', table_keys=['id', 'name'],
                                 display_keys=['ID', 'Name'])
         pagination.page_tab()

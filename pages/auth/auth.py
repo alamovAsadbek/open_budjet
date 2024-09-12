@@ -68,7 +68,8 @@ class Auth:
             if number_of_attempts > 4:
                 print("You have reached the maximum number of attempts.")
                 return False
-            confirm_code: int = int(input("\nConfirm code: "))
+            print(f"Number of attempts: {number_of_attempts + 1}")
+            confirm_code: int = int(input("Confirm code: "))
             if confirm_code == code:
                 print("Confirm email")
                 break

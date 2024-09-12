@@ -20,9 +20,7 @@ class Auth:
     @log_decorator
     def logout(self):
         self.create_tables()
-        query='''
-        UPDATE users 
-        '''
+        return True
 
     @log_decorator
     def register(self):

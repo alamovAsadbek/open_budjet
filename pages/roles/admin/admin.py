@@ -51,4 +51,11 @@ class Admin:
     def delete_category(self) -> bool:
         self.__categories_menu.delete_category()
         return True
+
     # /category menu
+
+    # users menu
+    @log_decorator
+    def show_all_users(self) -> bool:
+        pass
+    # / users menu

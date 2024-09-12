@@ -42,7 +42,18 @@ def user_menu():
     '''
     print(text)
     try:
-        pass
+        user_input: int = int(input("Choose menu: ").strip())
+        if user_input == 1:
+            pass
+        elif user_input == 2:
+            pass
+        elif user_input == 3:
+            pass
+        elif user_input == 4:
+            print("Exit")
+            print("Waiting...")
+            auth.logout()
+            auth_menu()
     except Exception as e:
         print(f'Error: {e}')
         user_menu()

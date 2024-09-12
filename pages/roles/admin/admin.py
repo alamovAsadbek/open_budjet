@@ -59,4 +59,8 @@ class Admin:
     def show_all_users(self) -> bool:
         self.__users_menu.show_all_users()
         return True
+
+    @log_decorator
+    def update_users(self) -> bool:
+        pass
     # / users menu

@@ -1,5 +1,6 @@
 import math
 
+from components.color_text.color_text import color_text
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
 
@@ -38,8 +39,11 @@ class Pagination:
                 print("\n")
                 for display_key, table_key in zip(self.display_keys, self.table_keys):
                     print(f"{display_key}: {data[f'{table_key}']}")
-            print(f"""\n1 <- {page_number}/{math.ceil(len(datas) / page_size)} -> 2\n""")
-            choice = input("Enter, type exit to exit: ").strip()
+            print(
+                f"""\n{color_text('1', color='blue', is_bold=True)} 
+                <- {page_number}/{math.ceil(len(datas) / page_size)} -> 
+                {color_text('2', color='blue', is_bold=True)}\n""")
+            choice = input("Manage pagination, type exit to exit: ").strip()
             if choice == "exit":
                 return True
             elif choice == "1":

@@ -48,7 +48,7 @@ class Auth:
         query = '''
         SELECT * FROM USERS WHERE email=%s;
         '''
-        result = execute_query(query, (email,))
+        result = execute_query(query, (email,), fetch='one')
         if result is None:
             return False
         return True

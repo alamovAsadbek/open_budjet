@@ -1,4 +1,5 @@
 from main_files.decorator.decorator_func import log_decorator
+from pages.auth.auth import Auth
 
 
 @log_decorator
@@ -23,4 +24,7 @@ def auth_menu():
 
 
 if __name__ == '__main__':
+    print("Waiting...")
+    auth = Auth()
+    auth.logout()
     auth_menu()

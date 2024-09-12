@@ -4,7 +4,7 @@ from main_files.decorator.decorator_func import log_decorator
 
 class Tables:
     @log_decorator
-    def create_users_table(self):
+    def create_users_table(self) -> bool:
         query = '''
         CREATE TABLE IF NOT EXISTS users (
         ID BIGSERIAL PRIMARY KEY,
@@ -20,7 +20,7 @@ class Tables:
         return True
 
     @log_decorator
-    def create_categories_table(self):
+    def create_categories_table(self) -> bool:
         query = '''
         CREATE TABLE IF NOT EXISTS categories (
         ID BIGSERIAL PRIMARY KEY,

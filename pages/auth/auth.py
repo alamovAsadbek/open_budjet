@@ -16,7 +16,7 @@ class Auth:
         return True
 
     @log_decorator
-    def login(self):
+    def login(self) -> bool:
         pass
 
     @log_decorator
@@ -29,5 +29,5 @@ class Auth:
         return True
 
     @log_decorator
-    def register(self):
+    def register(self) -> bool:
         pass

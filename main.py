@@ -51,7 +51,7 @@ def user_menu():
     try:
         user_input: int = int(input("Choose menu: ").strip())
         if user_input == 1:
-            pass
+            user_appeal_menu()
         elif user_input == 2:
             pass
         elif user_input == 3:
@@ -61,6 +61,9 @@ def user_menu():
             print("Waiting...")
             auth.logout()
             auth_menu()
+        else:
+            print("Wrong input")
+        user_menu()
     except Exception as e:
         print(f'Error: {e}')
         user_menu()

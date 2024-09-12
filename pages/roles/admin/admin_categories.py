@@ -20,7 +20,7 @@ class AdminCategoryPageAdmin:
     @log_decorator
     def update_category(self) -> bool:
         category_id: int = int(input("Enter category id: ").strip())
-        print(color_text("Waiting...", color='magenta', is_bold=True))
+        print(color_text("Waiting...", color='cyan', is_bold=True))
         query = '''
         SELECT * FROM categories WHERE id=%s;
         '''

@@ -1,0 +1,2 @@
+class UserAppealPageUser:
+    pass

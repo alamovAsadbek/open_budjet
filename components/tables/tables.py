@@ -30,3 +30,7 @@ class Tables:
         '''
         execute_query(query)
         return True
+
+    @log_decorator
+    def create_appeals_table(self) -> bool:
+        pass

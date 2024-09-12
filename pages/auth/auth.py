@@ -19,7 +19,7 @@ class Auth:
 
     @log_decorator
     def logout(self):
-        pass
+        self.create_tables()
 
     @log_decorator
     def register(self):

@@ -325,3 +325,6 @@ INSERT INTO categories (name) VALUES ('%s');
 
 -- categoryini update qilish uchun query
 UPDATE categories SET name='%s' WHERE id='%s';
+
+-- category ni uchirish uchun query
+DELETE FROM categories WHERE id='%s';

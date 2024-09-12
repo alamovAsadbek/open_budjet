@@ -1,2 +1,7 @@
+from main_files.decorator.decorator_func import log_decorator
+
+
 class Auth:
-    pass
+    @log_decorator
+    def login(self):
+        pass

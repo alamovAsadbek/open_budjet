@@ -41,4 +41,9 @@ class UserAppealPageUser:
     def send_request(self):
         get_category = self.get_category()
         if get_category is None or get_category is False:
+            print(color_text('Category not found', 'red'))
+            return False
+        get_region = self.switch_region()
+        if get_region is None or get_region is False:
+            print(color_text('Region not found', 'red'))
             return False

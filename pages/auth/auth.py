@@ -31,8 +31,17 @@ class Auth:
         return True
 
     @log_decorator
-    def login(self) -> bool:
-        pass
+    def login(self) -> dict:
+        email: str = input("Email: ").strip()
+        password: str = hashlib.sha256(input("Password: ").strip().encode('utf-8')).hexdigest()
+        query = '''
+        SELECT * FROM USERS WHERE email=%s and password=%s
+        '''
+        params = (email, password)
+        result_get = execute_query(query, params, fetch='one')
+        if result_get is None:
+            print("User not found")
+            return {'is_login': False}
 
     @log_decorator
     def logout(self) -> bool:

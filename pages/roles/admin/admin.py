@@ -27,6 +27,7 @@ class Admin:
         return True
 
     @log_decorator
-    def show_all_categories(self):
-        pass
+    def show_all_categories(self) -> bool:
+        self.__categories_menu.show_all_categories()
+        return True
     # /category menu

@@ -77,3 +77,7 @@ class UserAppealPageUser:
         if get_region is None or get_region is False:
             print(color_text('Region not found', 'red'))
             return False
+        get_district = self.switch_district(get_region['id'])
+        if get_district is None or get_district is False:
+            print(color_text('District not found', 'red'))
+            return False

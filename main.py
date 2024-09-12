@@ -146,6 +146,11 @@ def admin_seasons_menu():
         admin_seasons_menu()
 
 
+@log_decorator
+def admin_categories_menu():
+    pass
+
+
 if __name__ == '__main__':
     print("Waiting...")
     auth = Auth()

@@ -26,7 +26,7 @@ class AdminCategoryPageAdmin:
         query = '''
         SELECT * FROM categories WHERE id=%s;
         '''
-        result_get = execute_query(query, (category_id,))
+        result_get = execute_query(query, (category_id,), fetch='one')
         if result_get is None:
             print(color_text("Category not found", color='yellow', is_bold=True))
 

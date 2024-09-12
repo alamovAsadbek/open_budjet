@@ -28,6 +28,11 @@ def auth_menu():
         auth_menu()
 
 
+@log_decorator
+def admin_menu():
+    pass
+
+
 if __name__ == '__main__':
     print("Waiting...")
     auth = Auth()

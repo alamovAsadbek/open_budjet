@@ -39,4 +39,4 @@ WHERE email = 'alamovasad55@gmail.com';
 SELECT *
 FROM USERS
 WHERE email = '% s'
-  and password = '% s'
+  and password = '% s';

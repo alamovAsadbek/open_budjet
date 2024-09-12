@@ -18,3 +18,7 @@ class AdminCategoryPageAdmin:
     @log_decorator
     def update_category(self) -> bool:
         pass
+
+    @log_decorator
+    def show_all_categories(self) -> bool:
+        pass

@@ -38,5 +38,6 @@ class Admin:
 
     @log_decorator
     def delete_category(self) -> bool:
-        pass
+        self.__categories_menu.delete_category()
+        return True
     # /category menu

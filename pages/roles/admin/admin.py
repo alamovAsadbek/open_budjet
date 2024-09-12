@@ -35,4 +35,8 @@ class Admin:
     def update_category(self) -> bool:
         self.__categories_menu.update_category()
         return True
+
+    @log_decorator
+    def delete_category(self) -> bool:
+        pass
     # /category menu

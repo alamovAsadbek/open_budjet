@@ -79,6 +79,7 @@ class AdminSeasonsPageAdmin:
 
     @log_decorator
     def update_status(self):
-        query='''
-        SELECT * FROM seasons WHERE status=;
+        query = '''
+        SELECT * FROM seasons WHERE status='not_started' or status='appeal' or status='vote';
         '''
+        result_get = execute_query(query, fetch='one')

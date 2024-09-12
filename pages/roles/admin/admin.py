@@ -62,5 +62,6 @@ class Admin:
 
     @log_decorator
     def update_users(self) -> bool:
-        pass
+        self.__users_menu.update_user()
+        return True
     # / users menu

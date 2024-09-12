@@ -100,7 +100,7 @@ class UserAppealPageUser:
         description: str = input("Enter description: ").strip()
         price: int = int(input("Enter price only number(uzs): ").strip())
         query = '''
-        INSERT INTO appeals (name, description, price, user_id, category_id, region_id, seasons_id, district_id)
+        INSERT INTO appeals (name, description, price, user_id, category_id, region_id, seasons_id,  districts_id)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
         '''
         params = (title, description, price, active_user['id'], get_category['id'], get_region['id'],

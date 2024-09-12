@@ -17,6 +17,10 @@ class AdminSeasonsPageAdmin:
         return result_get
 
     @log_decorator
+    def switch_region(self):
+        pass
+
+    @log_decorator
     def create_seasons(self):
         print(color_text('Waiting...', color='cyan'))
         print(color_text('Check out the first categories to create a new season. Then the categories cannot be changed',
@@ -25,3 +29,4 @@ class AdminSeasonsPageAdmin:
         if all_categories is None or len(all_categories) == 0:
             print(color_text('There are no categories', color='yellow', is_bold=True))
             return False
+        print(all_categories)

@@ -67,9 +67,13 @@ class AdminCategoryPageAdmin:
         if result_get is None:
             print(color_text("Category not found", color='yellow', is_bold=True))
             return False
-        print(f"Category ID: {result_get['id']}\nCategory name: {result_get['name']}\n")
-        confirm_delete: str = input("Are you sure you want to delete this category? (y/n) ").strip()
+        print(f"\nCategory ID: {result_get['id']}\nCategory name: {result_get['name']}\n")
+        confirm_delete: str = input("Are you sure you want to delete this category? (y/n): ").strip().lower()
         if confirm_delete == 'y':
+            query = '''
+            DELETE FROM categories WHERE id=%s;
+            '''
+            threading.Thread(target=execute_query, args=(query, (category_id,))).start()
             print(color_text("Deleting category successfully", color='green', is_bold=True))
         elif confirm_delete == 'n':
             print(color_text("Deleting category not found", color='magenta', is_bold=True))

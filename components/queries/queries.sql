@@ -321,3 +321,7 @@ VALUES (1, 'Marxamat tumani'),
 
 -- Yangi category qo'shish uchun query
 INSERT INTO categories (name) VALUES ('%s');
+
+
+-- categoryini update qilish uchun query
+UPDATE categories SET name='%s' WHERE id='%s';

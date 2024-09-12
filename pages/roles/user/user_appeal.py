@@ -69,7 +69,11 @@ class UserAppealPageUser:
 
     @log_decorator
     def get_active_season(self):
-        pass
+        query = '''
+        SELECT * FROM seasons WHERE status='appeal';
+        '''
+        result_get = execute_query(query, fetch='one')
+        return result_get
 
     @log_decorator
     def send_request(self):

@@ -8,7 +8,7 @@ from main_files.decorator.decorator_func import log_decorator
 
 class UserAppealPageUser:
     @log_decorator
-    def get_category(self):
+    def get_category(self) -> bool or list:
         print(color_text('Waiting...', 'cyan'))
         print(color_text("Switch category", color='blue'))
         pagination = Pagination(table_name='categories', table_keys=['id', 'name'],

@@ -37,6 +37,7 @@ class Auth:
         password: str = hashlib.sha256(input("Password: ").strip().encode('utf-8')).hexdigest()
         if email == self.__admin_email and password == self.__admin_password:
             return {'is_login': True, 'role': 'admin'}
+        print("Waiting...")
         query = '''
         SELECT * FROM USERS WHERE email=%s and password=%s
         '''

@@ -165,7 +165,7 @@ def admin_categories_menu():
         if user_input == 1:
             admin.create_new_category()
         elif user_input == 2:
-            pass
+            admin.update_category()
         elif user_input == 3:
             pass
         elif user_input == 4:

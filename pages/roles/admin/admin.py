@@ -66,6 +66,7 @@ class Admin:
         return True
 
     @log_decorator
-    def delete_user(self):
-        pass
+    def delete_user(self) -> bool:
+        self.__users_menu.delete_user()
+        return True
     # / users menu

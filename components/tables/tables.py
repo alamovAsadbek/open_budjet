@@ -33,7 +33,15 @@ class Tables:
 
     @log_decorator
     def create_regions_table(self) -> bool:
-        pass
+        query = '''
+        CREATE TABLE IF NOT EXISTS regions
+        (
+            ID   BIGSERIAL PRIMARY KEY,
+            NAME VARCHAR(255) NOT NULL
+        );
+        '''
+        execute_query(query)
+        return True
 
     @log_decorator
     def create_appeals_table(self) -> bool:

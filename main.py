@@ -169,7 +169,7 @@ def admin_categories_menu():
         elif user_input == 3:
             pass
         elif user_input == 4:
-            pass
+            admin.show_all_categories()
         elif user_input == 5:
             admin_menu()
         else:

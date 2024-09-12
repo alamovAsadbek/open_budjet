@@ -1,4 +1,5 @@
 import contextlib
+import smtplib
 
 from main_files.decorator.decorator_func import log_decorator
 
@@ -13,7 +14,11 @@ class EmailSender:
     @log_decorator
     @contextlib.contextmanager
     def connect_email(self):
-        pass
+        server = smtplib.SMTP(self.smtp_server, self.port)
+        server.starttls()
+        server.login(self.sender_email, self.password)
+        yield server
+        server.quit()
 
     @log_decorator
     def send_email(self):

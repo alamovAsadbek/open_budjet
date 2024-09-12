@@ -67,6 +67,8 @@ class AdminSeasonsPageAdmin:
         print(color_text('Waiting...', color='cyan'))
         print(color_text('Check out the first categories to create a new season. Then the categories cannot be changed',
                          color='yellow', is_bold=True))
+        if self.get_active_season() is not None:
+            print(color_text('\nThere is an active season', color='red'))
         name: str = input("Enter new season's name or type exit to exit: ").strip()
         if name.lower() == 'exit':
             return False

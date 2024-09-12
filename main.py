@@ -77,7 +77,7 @@ def admin_menu():
     try:
         admin_input: int = int(input("Choose menu: ").strip())
         if admin_input == 1:
-            pass
+            admin_appeals_menu()
         elif admin_input == 2:
             pass
         elif admin_input == 3:
@@ -87,6 +87,9 @@ def admin_menu():
         elif admin_input == 5:
             print("Exit")
             auth_menu()
+        else:
+            print("Wrong input")
+        admin_menu()
     except Exception as e:
         print(f'Error: {e}')
         admin_menu()

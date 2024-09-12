@@ -17,4 +17,4 @@ class AdminSeasonsPageAdmin:
 
     @log_decorator
     def create_seasons(self):
-        pass
+        self.get_categories()

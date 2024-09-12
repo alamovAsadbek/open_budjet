@@ -9,12 +9,17 @@ from main_files.decorator.decorator_func import log_decorator
 class Auth:
     def __init__(self):
         self.__tables = Tables()
+        self.__confirm_time = 0
 
     @log_decorator
     def create_tables(self) -> bool:
         self.__tables.create_users_table()
         threading.Thread(target=self.__tables.create_categories_table).start()
         return True
+
+    @log_decorator
+    def count_time(self):
+        pass
 
     @log_decorator
     def login(self) -> bool:
@@ -40,4 +45,5 @@ class Auth:
             print('Passwords do not match!')
             password: str = hashlib.sha256(input('Password: ').encode('utf-8')).hexdigest()
             confirm_password: str = hashlib.sha256(password.encode('utf-8')).hexdigest()
-        return True
+        print(f"\nConfirm email: {email}\n")
+        print("You will have 30 seconds to confirm your email")

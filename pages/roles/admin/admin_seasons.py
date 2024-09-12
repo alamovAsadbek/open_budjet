@@ -66,13 +66,14 @@ class AdminSeasonsPageAdmin:
         print(color_text('Check out the first categories to create a new season. Then the categories cannot be changed',
                          color='yellow', is_bold=True))
         all_categories = self.get_categories()
-        if all_categories is None or len(all_categories) == 0:
-            print(color_text('There are no categories', color='yellow', is_bold=True))
-            return False
-        get_region = self.switch_region()
-        if get_region is False:
-            return False
-        get_district = self.switch_districts()
-        if get_district is None:
-            return False
-        print(get_region, get_district)
+        print(all_categories)
+        # if all_categories is None or len(all_categories) == 0:
+        #     print(color_text('There are no categories', color='yellow', is_bold=True))
+        #     return False
+        # get_region = self.switch_region()
+        # if get_region is False:
+        #     return False
+        # get_district = self.switch_districts()
+        # if get_district is None:
+        #     return False
+        # print(get_region, get_district)

@@ -141,6 +141,9 @@ def admin_seasons_menu():
             pass
         elif user_input == 4:
             admin_menu()
+        else:
+            print("Wrong input")
+        admin_seasons_menu()
     except Exception as e:
         print(f'Error: {e}')
         admin_seasons_menu()
@@ -168,6 +171,9 @@ def admin_categories_menu():
             pass
         elif user_input == 5:
             admin_menu()
+        else:
+            print("Wrong input")
+        admin_categories_menu()
     except Exception as e:
         print(f'Error: {e}')
         admin_categories_menu()
@@ -183,7 +189,18 @@ def admin_users_menu():
     '''
     print(text)
     try:
-        pass
+        user_input: int = int(input("Choose menu: ").strip())
+        if user_input == 1:
+            pass
+        elif user_input == 2:
+            pass
+        elif user_input == 3:
+            pass
+        elif user_input == 4:
+            admin_menu()
+        else:
+            print("Wrong input")
+        admin_users_menu()
     except Exception as e:
         print(f'Error: {e}')
         admin_users_menu()

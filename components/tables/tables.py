@@ -59,7 +59,22 @@ class Tables:
 
     @log_decorator
     def create_seasons_table(self) -> bool:
-        pass
+        query = '''
+        CREATE TABLE IF NOT EXISTS SEASONS
+        (
+            ID            BIGINT PRIMARY KEY,
+            NAME          VARCHAR(255) NOT NULL,
+            CATEGORIES_ID jsonb,
+            REGION_ID     BIGINT       NOT NULL,
+            DISTRICTS_ID  BIGINT       NOT NULL,
+            STATUS        VARCHAR(255) NULL DEFAULT 'not_started',
+            CREATED_AT    TIMESTAMP    NULL DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (REGION_ID) REFERENCES regions (ID) ON DELETE CASCADE,
+            FOREIGN KEY (DISTRICTS_ID) REFERENCES districts (ID) ON DELETE CASCADE
+        );
+        '''
+        execute_query(query)
+        return True
 
     @log_decorator
     def create_appeals_table(self) -> bool:

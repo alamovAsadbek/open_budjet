@@ -1,6 +1,8 @@
+import threading
+
 from components.color_text.color_text import color_text
 from components.pagination.pagination import Pagination
-from main_files.database.db_setting import execute_query
+from main_files.database.db_setting import execute_query, get_active_user
 from main_files.decorator.decorator_func import log_decorator
 
 
@@ -77,9 +79,10 @@ class UserAppealPageUser:
 
     @log_decorator
     def send_request(self):
+        active_user = get_active_user()
         active_season = self.get_active_season()
         if active_season is None or active_season is False:
-            print(color_text('Active season not found', 'yellow'))
+            print(color_text('\nActive season not found', 'yellow'))
             return False
         get_category = self.get_category()
         if get_category is None or get_category is False:
@@ -95,4 +98,13 @@ class UserAppealPageUser:
             return False
         title: str = input("Enter title: ").strip()
         description: str = input("Enter description: ").strip()
-        price: int = int(input("Enter price only number(uzs): "))
+        price: int = int(input("Enter price only number(uzs): ").strip())
+        query = '''
+        INSERT INTO appeals (name, description, price, user_id, category_id, region_id, season_id, district_id)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
+        '''
+        params = (title, description, price, active_user['id'], get_category['id'], get_region['id'],
+                  active_season['id'], get_district['id'])
+        threading.Thread(target=execute_query, args=(query, params)).start()
+        print(color_text('Sent request', 'green'))
+        return True

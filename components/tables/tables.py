@@ -45,7 +45,17 @@ class Tables:
 
     @log_decorator
     def create_districts_table(self) -> bool:
-        pass
+        query = '''
+        CREATE TABLE IF NOT EXISTS districts
+        (
+            ID        BIGSERIAL PRIMARY KEY,
+            NAME      VARCHAR(255) NOT NULL,
+            REGION_ID BIGINT       NOT NULL,
+            FOREIGN KEY (REGION_ID) REFERENCES regions (ID) ON DELETE CASCADE
+        );
+        '''
+        execute_query(query)
+        return True
 
     @log_decorator
     def create_appeals_table(self) -> bool:

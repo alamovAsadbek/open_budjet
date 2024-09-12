@@ -79,4 +79,6 @@ class AdminSeasonsPageAdmin:
 
     @log_decorator
     def update_status(self):
-        pass
+        query='''
+        SELECT * FROM seasons WHERE status=;
+        '''

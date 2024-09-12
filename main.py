@@ -129,7 +129,8 @@ def admin_seasons_menu():
 1. Create new season
 2. Update existing season's status
 3. Statistics
-4. Back
+4. Show all seasons
+5. Back
     '''
     print(text)
     try:
@@ -141,6 +142,8 @@ def admin_seasons_menu():
         elif user_input == 3:
             pass
         elif user_input == 4:
+            pass
+        elif user_input == 5:
             admin_menu()
         else:
             print("Wrong input")

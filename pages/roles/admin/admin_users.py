@@ -32,4 +32,6 @@ class AdminUsersPageAdmin:
         password = hashlib.sha256(input("Enter password").strip().encode('utf-8')).hexdigest()
         confirm_password = hashlib.sha256(input("Confirm password: ").strip().encode('utf-8')).hexdigest()
         while password != confirm_password:
-            pass
+            print(color_text('Passwords do not match', 'yellow'))
+            password = hashlib.sha256(input("Enter password").strip().encode('utf-8')).hexdigest()
+            confirm_password = hashlib.sha256(input("Confirm password: ").strip().encode('utf-8')).hexdigest()

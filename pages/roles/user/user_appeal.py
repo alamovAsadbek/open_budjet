@@ -78,6 +78,10 @@ class UserAppealPageUser:
         return result_get
 
     @log_decorator
+    def get_my_request(self):
+        pass
+
+    @log_decorator
     def send_request(self):
         active_user = get_active_user()
         active_season = self.get_active_season()

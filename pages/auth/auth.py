@@ -5,3 +5,7 @@ class Auth:
     @log_decorator
     def login(self):
         pass
+
+    @log_decorator
+    def logout(self):
+        pass

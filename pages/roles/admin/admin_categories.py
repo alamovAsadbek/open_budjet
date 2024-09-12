@@ -35,7 +35,7 @@ class AdminCategoryPageAdmin:
         query = '''
         UPDATE categories SET name=%s WHERE id=%s;
         '''
-        threading.Thread(target=execute_query, args=(query, (name,))).start()
+        threading.Thread(target=execute_query, args=(query, (name, result_get['id']))).start()
         print(color_text("Category updated successfully", color='green', is_bold=True))
         return True
 

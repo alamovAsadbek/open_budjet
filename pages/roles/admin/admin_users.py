@@ -15,3 +15,6 @@ class AdminUsersPageAdmin:
     @log_decorator
     def update_user(self) -> bool:
         print(color_text('Waiting...', 'cyan'))
+        if not self.show_all_users():
+            return False
+        user_id: int = int(input('Enter user ID: ').strip())

@@ -14,3 +14,7 @@ class AdminCategoryPageAdmin:
         threading.Thread(target=execute_query, args=(query, (name,))).start()
         print("Category created successfully")
         return True
+
+    @log_decorator
+    def update_category(self) -> bool:
+        pass

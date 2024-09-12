@@ -107,10 +107,10 @@ def user_appeal_menu():
         elif user_input == 2:
             pass
         elif user_input == 3:
-            pass
+            user_menu()
         else:
             print('Wrong input')
-            user_appeal_menu()
+        user_appeal_menu()
     except Exception as e:
         print(f'Error: {e}')
         user_appeal_menu()

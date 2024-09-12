@@ -1,5 +1,6 @@
 import threading
 
+from components.pagination.pagination import Pagination
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
 
@@ -21,4 +22,7 @@ class AdminCategoryPageAdmin:
 
     @log_decorator
     def show_all_categories(self) -> bool:
-        pass
+        pagination = Pagination(table_name='categories', table_keys=['id', 'name'],
+                                display_keys=['ID', "Name"])
+        pagination.page_tab()
+        return True

@@ -57,4 +57,4 @@ class Pagination:
                     continue
                 page_number += 1
             else:
-                print("Invalid choice")
+                print(color_text("Invalid choice", color='red'))

@@ -61,7 +61,6 @@ class AdminAppealsPageAdmin:
                                               'Category name', 'Region name', 'District name', 'Season name'],
                                 data=get_appeals)
         if not pagination.page_tab():
-            print("Rejecting appeals not found!", 'yellow')
             return False
         return True
 

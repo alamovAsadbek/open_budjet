@@ -56,7 +56,16 @@ class UserSeason:
 
     @log_decorator
     def switch_appeal(self, data: list):
-        pass
+        pagination = Pagination(table_name='appeals',
+                                table_keys=['a_id', 'a_name', 'a_description', 'a_price', 'a_status',
+                                            'category_name', 'region_name', 'districts_name',
+                                            'season_name'],
+                                display_keys=['Appeal ID', 'Appeal Name', 'Appeal Description', 'Appeal Price (uzs)',
+                                              'Appeal Status', 'Category name', 'Region name', 'District name',
+                                              'Season name'],
+                                data=data)
+        if not pagination.page_tab():
+            return False
 
     @log_decorator
     def voting_user(self):
@@ -76,14 +85,4 @@ class UserSeason:
         get_appeals = self.switch_appeal(get_active_season['id'], get_category['id'])
         if get_appeals is None or get_appeals is False:
             print(color_text('Appeals not found', 'yellow'))
-            return False
-        pagination = Pagination(table_name='appeals',
-                                table_keys=['a_id', 'a_name', 'a_description', 'a_price', 'a_status',
-                                            'category_name', 'region_name', 'districts_name',
-                                            'season_name'],
-                                display_keys=['Appeal ID', 'Appeal Name', 'Appeal Description', 'Appeal Price (uzs)',
-                                              'Appeal Status', 'Category name', 'Region name', 'District name',
-                                              'Season name'],
-                                data=get_appeals)
-        if not pagination.page_tab():
             return False

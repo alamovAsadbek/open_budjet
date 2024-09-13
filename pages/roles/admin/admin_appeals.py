@@ -132,4 +132,15 @@ class AdminAppealsPageAdmin:
             f"{color_text('Region name: ', 'blue')} {get_appeals['region_name']}\n"
             f"{color_text('District name: ', 'blue')} {get_appeals['districts_name']}\n"
             f"{color_text('Season name: ', 'blue')} {get_appeals['season_name']}\n")
+        while True:
+            print(f"1. {color_text('Confirmation'), 'green'}\t2. {color_text('Cancellation', 'red')}")
+            choose_menu: int = int(input("Choose menu: ").strip())
+            if choose_menu == 1:
+                break
+            elif choose_menu == 2:
+                print(color_text('Exit', 'yellow'))
+                return False
+            else:
+                print(color_text('Invalid option!', 'yellow'))
+
         return True

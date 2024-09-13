@@ -55,7 +55,7 @@ class UserSeason:
         return execute_query(query, params, fetch='all')
 
     @log_decorator
-    def switch_appeal(self):
+    def switch_appeal(self, data: list):
         pass
 
     @log_decorator

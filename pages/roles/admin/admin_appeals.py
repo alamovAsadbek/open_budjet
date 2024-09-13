@@ -3,10 +3,11 @@ from main_files.decorator.decorator_func import log_decorator
 
 class AdminAppealsPageAdmin:
     @log_decorator
-    def get_appeals(self):
-        query='''
+    def get_appeals(self, status):
+        query = '''
         select a.id          as a_id,
            a.name        as a_name,
+           a.status         as a_status,
            a.description as a_description,
            a.price       as a_price,
            c.name        as category_name,

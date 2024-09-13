@@ -15,6 +15,7 @@ class UserSeason:
 
     @log_decorator
     def switch_category(self):
+        print(color_text('Switch category', 'magenta'))
         pagination = Pagination(table_name='categories', table_keys=['id', 'name'], display_keys=['ID', 'Name'])
         return pagination.page_tab()
 

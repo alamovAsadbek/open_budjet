@@ -76,5 +76,6 @@ class AdminAppealsPageAdmin:
         return True
 
     @log_decorator
-    def accepting_application(self):
-        pass
+    def accepting_application(self) -> bool:
+        self.show_appeals(status='wait')
+        return True

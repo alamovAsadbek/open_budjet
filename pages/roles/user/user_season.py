@@ -16,4 +16,5 @@ class UserSeason:
     def voting_user(self):
         get_active_season = self.get_active_season()
         if get_active_season is None:
-            print(color_text(''))
+            print(color_text('Active season not found', 'yellow'))
+            return False

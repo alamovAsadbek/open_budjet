@@ -48,11 +48,7 @@ class AdminAppealsPageAdmin:
 
     @log_decorator
     def show_appeals(self, status):
-        pass
-
-    @log_decorator
-    def rejecting_appeals(self) -> bool:
-        get_appeals = self.get_appeals(status='rejected')
+        get_appeals = self.get_appeals(status=status)
         if get_appeals is False or get_appeals is None:
             print(color_text('Rejected appeals not found!', 'yellow'))
             return False
@@ -68,3 +64,7 @@ class AdminAppealsPageAdmin:
             print("Rejecting appeals not found!", 'yellow')
             return False
         return True
+
+    @log_decorator
+    def rejecting_appeals(self) -> bool:
+        pass

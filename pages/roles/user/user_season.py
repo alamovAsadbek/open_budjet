@@ -65,3 +65,8 @@ class UserSeason:
         if get_category is None or get_category is False:
             print(color_text('Category not found', 'yellow'))
             return False
+        get_appeals = self.switch_appeal(get_active_season['id'], get_category['id'])
+        if get_appeals is None or get_appeals is False:
+            print(color_text('Appeals not found', 'yellow'))
+            return False
+        print(get_appeals)

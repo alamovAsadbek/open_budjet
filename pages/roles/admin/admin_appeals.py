@@ -14,10 +14,10 @@ class AdminAppealsPageAdmin:
            d.name        as destricts_name,
            s.name        as season_name,
            s.status      as season_status,
-           s.created_at  as season_created
+           s.created_at  as season_created,
            u.first_name     as u_first_name,
            u.last_name     as u_last_name,
-           u.email         as u_email,
+           u.email         as u_email
         FROM appeals a
                  inner join categories c on c.ID = a.CATEGORY_ID
                  inner join districts d on a.DISTRICTS_ID = d.ID

@@ -66,6 +66,14 @@ class UserSeason:
                                 data=data)
         if not pagination.page_tab():
             return False
+        appeal_id: int = int(input("Enter the appeal ID or type 0 to exit: ").strip())
+        if appeal_id == 0:
+            return False
+        query = '''
+        SELECT * FROM appeals WHERE id=%s;
+        '''
+        params = (appeal_id,)
+        return execute_query(query, params, fetch='one')
 
     @log_decorator
     def voting_user(self):

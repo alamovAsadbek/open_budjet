@@ -115,7 +115,9 @@ class AdminAppealsPageAdmin:
     def accepting_application(self) -> bool:
         print(color_text('Waiting...', 'cyan'))
         self.show_appeals(status='wait')
-        appeal_id: int = int(input('Appeal ID: ').strip())
+        appeal_id: int = int(input('Appeal ID or enter 0 to exit: ').strip())
+        if appeal_id == 0:
+            return False
         print(color_text('Checked...', 'cyan'))
         get_appeals = self.get_appeals(status='wait', data_id=appeal_id)
         if get_appeals is False or get_appeals is None:

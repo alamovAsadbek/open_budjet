@@ -114,5 +114,9 @@ class AdminAppealsPageAdmin:
         print(color_text('Waiting...', 'cyan'))
         self.show_appeals(status='wait')
         appeal_id: int = int(input('Appeal ID: ').strip())
-
+        print(color_text('Checked...', 'cyan'))
+        get_appeals = self.get_appeals(status='wait', data_id=appeal_id)
+        if get_appeals is False or get_appeals is None:
+            print(color_text('Rejected appeals not found!', 'yellow'))
+            return False
         return True

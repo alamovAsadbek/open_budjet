@@ -15,5 +15,6 @@ class User:
 
     @log_decorator
     def my_request(self) -> bool:
-        pass
+        self.__appeals_menu.my_request()
+        return True
     # / appeals menu

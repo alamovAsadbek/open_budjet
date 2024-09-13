@@ -97,7 +97,7 @@ class UserAppealPageUser:
                  inner join SEASONS S on S.ID = a.SEASONS_ID
         WHERE a.user_id = '%s';
         '''
-        params = (get_active_user(['id']),)
+        params = (get_active_user()['id'],)
         return execute_query(query, params, fetch='all')
 
     @log_decorator

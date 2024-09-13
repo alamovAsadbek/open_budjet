@@ -47,6 +47,10 @@ class AdminAppealsPageAdmin:
         return execute_query(query, param, fetch='all')
 
     @log_decorator
+    def show_appeals(self, status):
+        pass
+
+    @log_decorator
     def rejecting_appeals(self) -> bool:
         get_appeals = self.get_appeals(status='rejected')
         if get_appeals is False or get_appeals is None:

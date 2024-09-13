@@ -70,3 +70,7 @@ class AdminAppealsPageAdmin:
             '''
             param = (active_season['id'], status)
         return execute_query(query, param, fetch='all')
+
+    @log_decorator
+    def rejecting_appeals(self):
+        pass

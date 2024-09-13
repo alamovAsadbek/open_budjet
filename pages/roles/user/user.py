@@ -7,10 +7,13 @@ class User:
         self.__appeals_menu = UserAppealPageUser()
 
     # appeals menu
-    
+
     @log_decorator
     def send_request(self) -> bool:
         self.__appeals_menu.send_request()
         return True
 
+    @log_decorator
+    def my_request(self) -> bool:
+        pass
     # / appeals menu

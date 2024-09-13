@@ -56,6 +56,7 @@ class UserSeason:
         if get_active_season is None:
             print(color_text('Active season not found', 'yellow'))
             return False
+        print(f"\nSeason name: {get_active_season['name']}\nSeason status: {get_active_season['status']}\n")
         get_category = self.switch_category()
         if get_category is None or get_category is False:
             print(color_text('Category not found', 'yellow'))

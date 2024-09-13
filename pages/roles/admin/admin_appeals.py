@@ -137,7 +137,7 @@ class AdminAppealsPageAdmin:
             f"{color_text('District name: ', 'blue')} {get_appeals['districts_name']}\n"
             f"{color_text('Season name: ', 'blue')} {get_appeals['season_name']}\n")
         while True:
-            print(f"1. {color_text('Confirmation'), 'green'}\t2. {color_text('Cancellation', 'red')}")
+            print(f"{color_text('1. Confirmation', 'green')}\t{color_text('2. Cancellation', 'red')}")
             choose_menu: int = int(input("Choose menu: ").strip())
             if choose_menu == 1:
                 get_appeals['status'] = 'approved'

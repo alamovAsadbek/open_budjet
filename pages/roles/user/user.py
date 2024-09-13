@@ -17,4 +17,13 @@ class User:
     def my_request(self) -> bool:
         self.__appeals_menu.my_request()
         return True
+
     # / appeals menu
+
+    # season menu
+
+    @log_decorator
+    def voting_appeal(self) -> bool:
+        pass
+
+    # /season menu

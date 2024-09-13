@@ -165,7 +165,7 @@ def admin_appeals_menu():
         if user_input == 1:
             admin.rejecting_appeals()
         elif user_input == 2:
-            pass
+            admin.approved_appeals()
         elif user_input == 3:
             pass
         elif user_input == 4:

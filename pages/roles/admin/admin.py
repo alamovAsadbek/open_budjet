@@ -69,4 +69,13 @@ class Admin:
     def delete_user(self) -> bool:
         self.__users_menu.delete_user()
         return True
+
     # / users menu
+
+    # appeals menu
+
+    @log_decorator
+    def rejecting_appeals(self):
+        pass
+
+    # / appeals menu

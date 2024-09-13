@@ -1,4 +1,5 @@
 from components.color_text.color_text import color_text
+from components.pagination.pagination import Pagination
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
 
@@ -48,12 +49,12 @@ class AdminAppealsPageAdmin:
             query = '''
                     select a.id          as a_id,
                        a.name        as a_name,
-                       a.status         as a_status,
+                       a.status         as ,
                        a.description as a_description,
                        a.price       as a_price,
                        c.name        as category_name,
                        r.name        as region_name,
-                       d.name        as destricts_name,
+                       d.name        as districts_name,
                        s.name        as season_name,
                        s.status      as season_status,
                        s.created_at  as season_created,
@@ -73,4 +74,11 @@ class AdminAppealsPageAdmin:
 
     @log_decorator
     def rejecting_appeals(self):
-        pass
+        get_appeals = self.get_appeals(status='rejected')
+        if get_appeals is False or get_appeals is None:
+            print(color_text('Rejected appeals not found!', 'yellow'))
+            return False
+        pagination = Pagination(table_name='appeals',
+                                table_keys=['a_id', 'a_name', 'a_description', 'a_price', 'a_status', 'u_first_name',
+                                            'u_last_name', 'u_email', 'category_name', 'region_name', 'districts_name',
+                                            'season_name'])

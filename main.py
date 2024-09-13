@@ -109,7 +109,7 @@ def user_appeal_menu():
         if user_input == 1:
             user.send_request()
         elif user_input == 2:
-            pass
+            user.my_request()
         elif user_input == 3:
             user_menu()
         else:

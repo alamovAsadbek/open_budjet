@@ -400,6 +400,7 @@ WHERE a.status = 'accepted'
 -- Admin uchun barcha murojaatlarni ko'rish uchun query
 select a.id          as a_id,
        a.name        as a_name,
+       a.STATUS      as a_status,
        a.description as a_description,
        a.price       as a_price,
        c.name        as category_name,

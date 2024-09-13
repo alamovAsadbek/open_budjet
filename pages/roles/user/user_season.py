@@ -17,7 +17,13 @@ class UserSeason:
     def switch_category(self):
         print(color_text('Switch category', 'magenta'))
         pagination = Pagination(table_name='categories', table_keys=['id', 'name'], display_keys=['ID', 'Name'])
-        return pagination.page_tab()
+        if not pagination.page_tab():
+            return False
+        category_id: int = int(input("Enter the category ID: ").strip())
+        query = '''
+        SELECT * FROM categories WHERE id=%s;
+        '''
+        return execute_query(query, (category_id,), fetch='one')
 
     @log_decorator
     def switch_appeal(self, season_id):

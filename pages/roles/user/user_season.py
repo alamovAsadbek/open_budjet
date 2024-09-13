@@ -52,11 +52,14 @@ class UserSeason:
 
     @log_decorator
     def voting_user(self):
+        print(color_text('Waiting...', 'cyan'))
         get_active_season = self.get_active_season()
         if get_active_season is None:
             print(color_text('Active season not found', 'yellow'))
             return False
-        print(f"\nSeason name: {get_active_season['name']}\nSeason status: {get_active_season['status']}\n")
+        print(
+            f"\n{color_text('Season name: ', 'blue')} {get_active_season['name']}\n"
+            f"{color_text('Season status: ', 'blue')} {get_active_season['status']}\n")
         get_category = self.switch_category()
         if get_category is None or get_category is False:
             print(color_text('Category not found', 'yellow'))

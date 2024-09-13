@@ -83,4 +83,8 @@ class Admin:
     def approved_appeals(self):
         self.__appeals_menu.approved_appeals()
         return True
+
+    @log_decorator
+    def accepting_application(self):
+        pass
     # / appeals menu

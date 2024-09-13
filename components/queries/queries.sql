@@ -367,3 +367,9 @@ FROM appeals a
          inner join regions r on d.REGION_ID = r.ID
          inner join SEASONS S on S.ID = a.SEASONS_ID
 WHERE a.user_id = '%s';
+
+
+-- Aktiv seasonni topish
+SELECT *
+FROM seasons
+WHERE status = 'vote';

@@ -95,3 +95,6 @@ class UserSeason:
             print(color_text('Appeals not found', 'yellow'))
             return False
         switch_appeal = self.switch_appeal(get_appeals)
+        if switch_appeal is None or switch_appeal is False:
+            print(color_text('Appeal not found!', 'yellow'))
+            return False

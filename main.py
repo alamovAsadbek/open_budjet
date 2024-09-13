@@ -163,7 +163,7 @@ def admin_appeals_menu():
     try:
         user_input: int = int(input("Choose menu: ").strip())
         if user_input == 1:
-            pass
+            admin.rejecting_appeals()
         elif user_input == 2:
             pass
         elif user_input == 3:

@@ -1,3 +1,4 @@
+from components.color_text.color_text import color_text
 from main_files.database.db_setting import execute_query, get_active_user
 from main_files.decorator.decorator_func import log_decorator
 
@@ -29,4 +30,6 @@ class UserSeason:
 
     @log_decorator
     def voting_user(self):
-        pass
+        get_active_appeal=self.get_active_appeal()
+        if get_active_appeal is None:
+            print(color_text(''))

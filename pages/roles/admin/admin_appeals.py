@@ -41,9 +41,9 @@ class AdminAppealsPageAdmin:
                  inner join regions r on d.REGION_ID = r.ID
                  inner join SEASONS S on S.ID = a.SEASONS_ID
                  inner join users u on u.ID = a.USER_ID
-        where a.season_status = 'appeal'
+        where s.status = 'appeal' and a.seasons_id=%s;
         '''
-        param=()
+        param = (active_season['id'])
         if status is not None:
             query = '''
                     select a.id          as a_id,
@@ -66,6 +66,7 @@ class AdminAppealsPageAdmin:
                              inner join regions r on d.REGION_ID = r.ID
                              inner join SEASONS S on S.ID = a.SEASONS_ID
                              inner join users u on u.ID = a.USER_ID
-                    where a.status =%s;
+                    where s.status = 'appeal' and a.seasons_id=%s and a.status = %s;
             '''
-        execute_query(query, fetch='all')
+            param = (active_season['id'], status)
+        return execute_query(query, param, fetch='all')

@@ -20,7 +20,7 @@ class AdminAppealsPageAdmin:
         if active_season is None or active_season is False:
             print(color_text('Active season not found!', 'yellow'))
             return False
-        query='''
+        query = '''
         select a.id          as a_id,
            a.name        as a_name,
            a.status      as a_status,
@@ -59,7 +59,7 @@ class AdminAppealsPageAdmin:
                                 table_keys=['a_id', 'a_name', 'a_description', 'a_price', 'a_status', 'u_first_name',
                                             'u_last_name', 'u_email', 'category_name', 'region_name', 'districts_name',
                                             'season_name'],
-                                display_keys=['Appeal ID', 'Appeal Name', 'Appeal Description', 'Appeal Price',
+                                display_keys=['Appeal ID', 'Appeal Name', 'Appeal Description', 'Appeal Price (uzs)',
                                               'Appeal Status', 'User first_name', 'User last_name', 'User email',
                                               'Category name', 'Region name', 'District name', 'Season name'],
                                 data=get_appeals)

@@ -112,7 +112,10 @@ class UserAppealPageUser:
 
     @log_decorator
     def send_request(self):
-        self.check_appeal()
+        print(color_text("Waiting...", 'cyan'))
+        if self.check_appeal() is True:
+            print(color_text('You have an active appeal!', 'yellow'))
+            return True
         active_user = get_active_user()
         active_season = self.get_active_season()
         if active_season is None or active_season is False:

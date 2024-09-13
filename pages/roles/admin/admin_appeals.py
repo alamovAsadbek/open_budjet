@@ -119,12 +119,17 @@ class AdminAppealsPageAdmin:
         if get_appeals is False or get_appeals is None:
             print(color_text('Rejected appeals not found!', 'yellow'))
             return False
-        a = ['a_id', 'a_name', 'a_description', 'a_price', 'a_status', 'u_first_name',
-             'u_last_name', 'u_email', 'category_name', 'region_name', 'districts_name',
-             'season_name']
         print(
             f"\n{color_text('Appeal ID: ', 'blue')} {appeal_id}\n"
             f"{color_text('Appeal Name: ', 'blue')} {get_appeals['a_name']}\n"
             f"{color_text('Appeal Description: ', 'blue')}{get_appeals['a_description']}\n"
-            f"{color_text('Appeal price: ', 'blue')}{get_appeals['a_price']}")
+            f"{color_text('Appeal price: ', 'blue')}{get_appeals['a_price']}\n"
+            f"{color_text('Appeal status: ', 'blue')}{get_appeals['a_status']}\n"
+            f"{color_text('User first_name: ', 'blue')} {get_appeals['u_first_name']}\n"
+            f"{color_text('User last_name: ', 'blue')} {get_appeals['u_last_name']}\n"
+            f"{color_text('User email: ', 'blue')} {get_appeals['u_email']}\n"
+            f"{color_text('Category name: ', 'blue')} {get_appeals['category_name']}\n"
+            f"{color_text('Region name: ', 'blue')} {get_appeals['region_name']}\n"
+            f"{color_text('District name: ', 'blue')} {get_appeals['districts_name']}\n"
+            f"{color_text('Season name: ', 'blue')} {get_appeals['season_name']}\n")
         return True

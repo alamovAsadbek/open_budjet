@@ -418,3 +418,5 @@ FROM appeals a
          inner join regions r on d.REGION_ID = r.ID
          inner join SEASONS S on S.ID = a.SEASONS_ID
          inner join users u on u.ID = a.USER_ID;
+
+select * from users;

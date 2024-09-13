@@ -14,7 +14,7 @@ class UserSeason:
         return result
 
     @log_decorator
-    def switch_category(self):
+    def switch_category(self) -> bool or list:
         print(color_text('Switch category', 'magenta'))
         pagination = Pagination(table_name='categories', table_keys=['id', 'name'], display_keys=['ID', 'Name'])
         if not pagination.page_tab():

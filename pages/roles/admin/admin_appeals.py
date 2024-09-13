@@ -1,2 +1,7 @@
+from main_files.decorator.decorator_func import log_decorator
+
+
 class AdminAppealsPageAdmin:
-    pass
+    @log_decorator
+    def get_appeals(self):
+        pass

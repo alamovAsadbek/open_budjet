@@ -1,10 +1,12 @@
 from main_files.decorator.decorator_func import log_decorator
 from pages.roles.user.user_appeal import UserAppealPageUser
+from pages.roles.user.user_season import UserSeason
 
 
 class User:
     def __init__(self):
         self.__appeals_menu = UserAppealPageUser()
+        self.__season_menu = UserSeason()
 
     # appeals menu
 

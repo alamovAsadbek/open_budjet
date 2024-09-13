@@ -67,4 +67,5 @@ class AdminAppealsPageAdmin:
 
     @log_decorator
     def rejecting_appeals(self) -> bool:
-        pass
+        self.show_appeals(status='rejected')
+        return True

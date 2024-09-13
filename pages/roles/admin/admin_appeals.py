@@ -73,7 +73,7 @@ class AdminAppealsPageAdmin:
         return execute_query(query, param, fetch='all')
 
     @log_decorator
-    def rejecting_appeals(self):
+    def (self) -> bool:
         get_appeals = self.get_appeals(status='rejected')
         if get_appeals is False or get_appeals is None:
             print(color_text('Rejected appeals not found!', 'yellow'))
@@ -81,4 +81,12 @@ class AdminAppealsPageAdmin:
         pagination = Pagination(table_name='appeals',
                                 table_keys=['a_id', 'a_name', 'a_description', 'a_price', 'a_status', 'u_first_name',
                                             'u_last_name', 'u_email', 'category_name', 'region_name', 'districts_name',
-                                            'season_name'])
+                                            'season_name'],
+                                display_keys=['Appeal ID', 'Appeal Name', 'Appeal Description', 'Appeal Price',
+                                              'Appeal Status', 'User first_name', 'User last_name', 'User email',
+                                              'Category name', 'Region name', 'District name', 'Season name'],
+                                data=get_appeals)
+        if not pagination.page_tab():
+            print("Rejecting appeals not found!", 'yellow')
+            return False
+        return True

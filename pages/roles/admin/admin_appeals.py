@@ -15,7 +15,7 @@ class AdminAppealsPageAdmin:
         return execute_query(query, fetch='one')
 
     @log_decorator
-    def get_appeals(self, status):
+    def get_appeals(self, status: str):
         active_season = self.get_active_season()
         if active_season is None or active_season is False:
             print(color_text('Active season not found!', 'yellow'))
@@ -83,4 +83,6 @@ class AdminAppealsPageAdmin:
     def accepting_application(self) -> bool:
         print(color_text('Waiting...', 'cyan'))
         self.show_appeals(status='wait')
+        appeal_id: int = int(input('Appeal ID: ').strip())
+
         return True

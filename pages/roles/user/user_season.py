@@ -5,7 +5,7 @@ from main_files.decorator.decorator_func import log_decorator
 
 class UserSeason:
     @log_decorator
-    def get_active_appeal(self):
+    def get_active_season(self):
         query = '''
         SELECT * FROM seasons WHERE status='vote';
         '''
@@ -14,6 +14,6 @@ class UserSeason:
 
     @log_decorator
     def voting_user(self):
-        get_active_appeal = self.get_active_appeal()
-        if get_active_appeal is None:
+        get_active_season = self.get_active_season()
+        if get_active_season is None:
             print(color_text(''))

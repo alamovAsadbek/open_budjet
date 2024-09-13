@@ -26,13 +26,14 @@ class UserSeason:
         return execute_query(query, (category_id,), fetch='one')
 
     @log_decorator
-    def switch_appeal(self, season_id):
+    def switch_appeal(self, season_id: int, category_id: int):
         query = '''
         SELECT a.id          as a_id,
            a.name        as a_name,
            a.description as a_description,
            a.price       as a_price,
            a.status      as a_status,
+           c.id          as category_id,
            c.name        as category_name,
            r.name        as region_name,
            d.name        as districts_name,
@@ -45,9 +46,9 @@ class UserSeason:
                  inner join districts d on a.DISTRICTS_ID = d.ID
                  inner join regions r on d.REGION_ID = r.ID
                  inner join SEASONS S on S.ID = a.SEASONS_ID
-        WHERE a_status='accepted' and s.id = %s;
+        WHERE a_status='accepted' and s.id = %s and c.id = %s;
         '''
-        params = (season_id,)
+        params = (season_id, category_id)
         return execute_query(query, params, fetch='all')
 
     @log_decorator

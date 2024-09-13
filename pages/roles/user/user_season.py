@@ -63,6 +63,7 @@ class UserSeason:
         print(
             f"\n{color_text('Season name: ', 'blue')} {get_active_season['name']}\n"
             f"{color_text('Season status: ', 'blue')} {get_active_season['status']}\n")
+        print(color_text('Waiting...', 'cyan'))
         get_category = self.switch_category()
         if get_category is None or get_category is False:
             print(color_text('Category not found', 'yellow'))

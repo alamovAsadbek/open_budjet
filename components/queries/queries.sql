@@ -365,4 +365,5 @@ FROM appeals a
          inner join categories c on c.ID = a.CATEGORY_ID
          inner join districts d on a.DISTRICTS_ID = d.ID
          inner join regions r on d.REGION_ID = r.ID
-         inner join SEASONS S on S.ID = a.SEASONS_ID;
+         inner join SEASONS S on S.ID = a.SEASONS_ID
+WHERE a.user_id = '%s';

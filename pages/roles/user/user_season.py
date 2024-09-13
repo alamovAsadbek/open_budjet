@@ -19,7 +19,9 @@ class UserSeason:
         pagination = Pagination(table_name='categories', table_keys=['id', 'name'], display_keys=['ID', 'Name'])
         if not pagination.page_tab():
             return False
-        category_id: int = int(input("Enter the category ID: ").strip())
+        category_id: int = int(input("Enter the category ID or type 0 to exit: ").strip())
+        if category_id == 0:
+            return False
         query = '''
         SELECT * FROM categories WHERE id=%s;
         '''

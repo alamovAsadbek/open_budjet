@@ -86,7 +86,7 @@ class UserAppealPageUser:
            a.price       as a_price,
            c.name        as category_name,
            r.name        as region_name,
-           d.name        as destricts_name,
+           d.name        as districts_name,
            s.name        as season_name,
            s.status      as season_status,
            s.created_at  as season_created
@@ -147,5 +147,19 @@ class UserAppealPageUser:
         return True
 
     @log_decorator
-    def my_request(self):
-        pass
+    def my_request(self) -> bool:
+        print(color_text("Waiting...", 'cyan'))
+        all_appeals = self.get_my_request()
+        if all_appeals is None or len(all_appeals) == 0:
+            print(color_text('Appeals not found', 'yellow'))
+            return False
+        pagination = Pagination(table_name='appeals',
+                                table_keys=['a_id', 'a_name', 'a_description', 'a_price', 'category_name',
+                                            'region_name', 'districts_name', 'season_name', 'season_status',
+                                            'season_created'],
+                                display_keys=['Appeals ID', 'Appeals Name', 'Appeals Description', 'Appeals Price',
+                                              'Category Name', 'Region Name', 'District Name', 'Season Status',
+                                              'Season status', 'Season Created'], data=all_appeals)
+        if not pagination.page_tab():
+            return False
+        return True

@@ -48,7 +48,7 @@ class UserSeason:
                  inner join districts d on a.DISTRICTS_ID = d.ID
                  inner join regions r on d.REGION_ID = r.ID
                  inner join SEASONS S on S.ID = a.SEASONS_ID
-        WHERE a.status='accepted' and s.id = %s and c.id = %s;
+        WHERE a.status='approved' and s.id = %s and c.id = %s;
         '''
         params = (season_id, category_id)
         return execute_query(query, params, fetch='all')

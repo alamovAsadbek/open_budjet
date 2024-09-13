@@ -5,7 +5,12 @@ from main_files.decorator.decorator_func import log_decorator
 class AdminAppealsPageAdmin:
     @log_decorator
     def get_active_season(self):
-        pass
+        query = '''
+        SELECT *
+        FROM seasons
+        WHERE status = 'appeal';
+        '''
+        return execute_query(query, fetch='one')
 
     @log_decorator
     def get_appeals(self, status=None):

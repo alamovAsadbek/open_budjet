@@ -369,7 +369,7 @@ FROM appeals a
 WHERE a.user_id = '%s';
 
 
--- Aktiv seasonni topish
+-- Aktiv seasonni topish uchun query
 SELECT *
 FROM seasons
 WHERE status = 'vote';

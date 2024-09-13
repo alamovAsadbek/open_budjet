@@ -1,3 +1,5 @@
+import threading
+
 from components.color_text.color_text import color_text
 from components.pagination.pagination import Pagination
 from main_files.database.db_setting import execute_query
@@ -136,11 +138,18 @@ class AdminAppealsPageAdmin:
             print(f"1. {color_text('Confirmation'), 'green'}\t2. {color_text('Cancellation', 'red')}")
             choose_menu: int = int(input("Choose menu: ").strip())
             if choose_menu == 1:
-                break
+                get_appeals['status'] = 'approved'
+                print(color_text('Approved', 'yellow'))
             elif choose_menu == 2:
-                print(color_text('Exit', 'yellow'))
-                return False
+                get_appeals['status'] = 'cancellation'
+                print(color_text('Canceled', 'yellow'))
             else:
                 print(color_text('Invalid option!', 'yellow'))
-
+                continue
+            break
+        query = '''
+        UPDATE appeals SET status = %s WHERE id = %s;
+        '''
+        param = (get_appeals['status'], appeal_id)
+        threading.Thread(target=execute_query, args=(query, param)).start()
         return True

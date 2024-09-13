@@ -13,6 +13,10 @@ class UserSeason:
         return result
 
     @log_decorator
+    def switch_appeal(self):
+        pass
+
+    @log_decorator
     def voting_user(self):
         get_active_season = self.get_active_season()
         if get_active_season is None:

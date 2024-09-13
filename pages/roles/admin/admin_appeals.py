@@ -4,6 +4,10 @@ from main_files.decorator.decorator_func import log_decorator
 
 class AdminAppealsPageAdmin:
     @log_decorator
+    def get_active_season(self):
+        pass
+
+    @log_decorator
     def get_appeals(self, status=None):
         query = '''
         select a.id          as a_id,
@@ -51,4 +55,4 @@ class AdminAppealsPageAdmin:
                              inner join users u on u.ID = a.USER_ID
                     where a.status =%s;
             '''
-        execute_query(query,  fetch='all')
+        execute_query(query, fetch='all')

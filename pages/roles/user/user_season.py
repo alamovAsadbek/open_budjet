@@ -20,6 +20,7 @@ class UserSeason:
         if not pagination.page_tab():
             return False
         category_id: int = int(input("Enter the category ID or type 0 to exit: ").strip())
+        print(color_text('Waiting...', 'cyan'))
         if category_id == 0:
             return False
         query = '''
@@ -80,3 +81,5 @@ class UserSeason:
                                               'Appeal Status', 'Category name', 'Region name', 'District name',
                                               'Season name'],
                                 data=get_appeals)
+        if not pagination.page_tab():
+            return False

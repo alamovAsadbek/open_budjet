@@ -29,7 +29,7 @@ class UserSeason:
         return execute_query(query, (category_id,), fetch='one')
 
     @log_decorator
-    def switch_appeal(self, season_id: int, category_id: int):
+    def switch_appeal_all(self, season_id: int, category_id: int):
         query = '''
         SELECT a.id          as a_id,
            a.name        as a_name,
@@ -90,7 +90,8 @@ class UserSeason:
         if get_category is None or get_category is False:
             print(color_text('Category not found', 'yellow'))
             return False
-        get_appeals = self.switch_appeal(get_active_season['id'], get_category['id'])
+        get_appeals = self.switch_appeal_all(get_active_season['id'], get_category['id'])
         if get_appeals is None or get_appeals is False:
             print(color_text('Appeals not found', 'yellow'))
             return False
+        switch_appeal = self.switch_appeal(get_appeals)

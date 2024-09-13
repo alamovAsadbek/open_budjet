@@ -72,4 +72,11 @@ class UserSeason:
         if get_appeals is None or get_appeals is False:
             print(color_text('Appeals not found', 'yellow'))
             return False
-        print(get_appeals)
+        pagination = Pagination(table_name='appeals',
+                                table_keys=['a_id', 'a_name', 'a_description', 'a_price', 'a_status',
+                                            'category_name', 'region_name', 'districts_name',
+                                            'season_name'],
+                                display_keys=['Appeal ID', 'Appeal Name', 'Appeal Description', 'Appeal Price (uzs)',
+                                              'Appeal Status', 'Category name', 'Region name', 'District name',
+                                              'Season name'],
+                                data=get_appeals)

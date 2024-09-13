@@ -9,7 +9,7 @@ def auth_menu():
     text = '''
 1. Register
 2. Login
-3. Logout
+3. Exit
     '''
     print(text)
     try:

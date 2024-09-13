@@ -15,7 +15,7 @@ class AdminAppealsPageAdmin:
         return execute_query(query, fetch='one')
 
     @log_decorator
-    def get_appeals(self, status: str, data_id: int = None):
+    def get_appeals(self, status: str, data_id: int = None) -> list or None:
         active_season = self.get_active_season()
         if active_season is None or active_season is False:
             print(color_text('Active season not found!', 'yellow'))
@@ -119,4 +119,12 @@ class AdminAppealsPageAdmin:
         if get_appeals is False or get_appeals is None:
             print(color_text('Rejected appeals not found!', 'yellow'))
             return False
+        a = ['a_id', 'a_name', 'a_description', 'a_price', 'a_status', 'u_first_name',
+             'u_last_name', 'u_email', 'category_name', 'region_name', 'districts_name',
+             'season_name']
+        print(
+            f"\n{color_text('Appeal ID: ', 'blue')} {appeal_id}\n"
+            f"{color_text('Appeal Name: ', 'blue')} {get_appeals['a_name']}\n"
+            f"{color_text('Appeal Description: ', 'blue')}{get_appeals['a_description']}\n"
+            f"{color_text('Appeal price: ', 'blue')}{get_appeals['a_price']}")
         return True

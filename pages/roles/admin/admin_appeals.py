@@ -67,6 +67,7 @@ class AdminAppealsPageAdmin:
 
     @log_decorator
     def rejecting_appeals(self) -> bool:
+        print(color_text('Waiting...', 'cyan'))
         self.show_appeals(status='rejected')
         return True
 

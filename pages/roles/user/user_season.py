@@ -13,6 +13,10 @@ class UserSeason:
         return result
 
     @log_decorator
+    def switch_category(self):
+        pass
+
+    @log_decorator
     def switch_appeal(self, season_id):
         query = '''
         SELECT a.id          as a_id,

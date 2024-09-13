@@ -137,13 +137,13 @@ class AdminAppealsPageAdmin:
             f"{color_text('District name: ', 'blue')} {get_appeals['districts_name']}\n"
             f"{color_text('Season name: ', 'blue')} {get_appeals['season_name']}\n")
         while True:
-            print(f"{color_text('1. Confirmation', 'green')}\t{color_text('2. Cancellation', 'red')}")
+            print(f"{color_text('1. Confirmation', 'green')}\t\t{color_text('2. Cancellation', 'red')}")
             choose_menu: int = int(input("Choose menu: ").strip())
             if choose_menu == 1:
-                get_appeals['status'] = 'approved'
+                get_appeals['a_status'] = 'approved'
                 print(color_text('Approved', 'yellow'))
             elif choose_menu == 2:
-                get_appeals['status'] = 'cancellation'
+                get_appeals['a_status'] = 'cancellation'
                 print(color_text('Canceled', 'yellow'))
             else:
                 print(color_text('Invalid option!', 'yellow'))
@@ -152,6 +152,6 @@ class AdminAppealsPageAdmin:
         query = '''
         UPDATE appeals SET status = %s WHERE id = %s;
         '''
-        param = (get_appeals['status'], appeal_id)
+        param = (get_appeals['a_status'], appeal_id)
         threading.Thread(target=execute_query, args=(query, param)).start()
         return True

@@ -159,7 +159,7 @@ class UserAppealPageUser:
                                             'region_name', 'districts_name', 'season_name', 'season_status',
                                             'season_created'],
                                 display_keys=['Appeals ID', 'Appeals Name', 'Appeals Description',
-                                              'Appeals Price (uzs)' 'Appeal Status',
+                                              'Appeals Price (uzs)', 'Appeal Status',
                                               'Category Name', 'Region Name', 'District Name', 'Season Status',
                                               'Season status', 'Season Created'], data=all_appeals)
         if not pagination.page_tab():

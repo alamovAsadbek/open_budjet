@@ -47,7 +47,7 @@ class AdminAppealsPageAdmin:
         return execute_query(query, param, fetch='all')
 
     @log_decorator
-    def(self) -> bool:
+    def voting_users(self) -> bool:
         get_appeals = self.get_appeals(status='rejected')
         if get_appeals is False or get_appeals is None:
             print(color_text('Rejected appeals not found!', 'yellow'))

@@ -141,7 +141,7 @@ class AdminAppealsPageAdmin:
             choose_menu: int = int(input("Choose menu: ").strip())
             if choose_menu == 1:
                 get_appeals['a_status'] = 'approved'
-                print(color_text('Approved', 'yellow'))
+                print(color_text('Approved', 'green'))
             elif choose_menu == 2:
                 get_appeals['a_status'] = 'cancellation'
                 print(color_text('Canceled', 'yellow'))

@@ -101,6 +101,10 @@ class UserAppealPageUser:
         return execute_query(query, params, fetch='all')
 
     @log_decorator
+    def check_appeal(self):
+        pass
+
+    @log_decorator
     def send_request(self):
         active_user = get_active_user()
         active_season = self.get_active_season()

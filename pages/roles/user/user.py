@@ -26,6 +26,7 @@ class User:
 
     @log_decorator
     def voting_appeal(self) -> bool:
-        pass
+        self.__season_menu.voting_user()
+        return True
 
     # /season menu

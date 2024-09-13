@@ -14,14 +14,16 @@ class UserSeason:
 
     @log_decorator
     def switch_appeal(self, season_id):
-        query='''
+        query = '''
         SELECT a.id          as a_id,
            a.name        as a_name,
            a.description as a_description,
            a.price       as a_price,
+           a.status      as a_status,
            c.name        as category_name,
            r.name        as region_name,
            d.name        as districts_name,
+           s.id          as season_id,
            s.name        as season_name,
            s.status      as season_status,
            s.created_at  as season_created
@@ -30,8 +32,10 @@ class UserSeason:
                  inner join districts d on a.DISTRICTS_ID = d.ID
                  inner join regions r on d.REGION_ID = r.ID
                  inner join SEASONS S on S.ID = a.SEASONS_ID
-        WHERE a.user_id = '%s';
+        WHERE a_status='accepted' and s.id = %s;
         '''
+        params = (season_id,)
+        return execute_query(query, params, fetch='all')
 
     @log_decorator
     def voting_user(self):

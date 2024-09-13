@@ -1,3 +1,4 @@
+from components.color_text.color_text import color_text
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
 
@@ -14,6 +15,10 @@ class AdminAppealsPageAdmin:
 
     @log_decorator
     def get_appeals(self, status=None):
+        active_season = self.get_active_season()
+        if active_season is None or active_season is False:
+            print(color_text('Active season not found!', 'yellow'))
+            return False
         query = '''
         select a.id          as a_id,
            a.name        as a_name,

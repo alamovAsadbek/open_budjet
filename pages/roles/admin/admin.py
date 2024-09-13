@@ -75,8 +75,9 @@ class Admin:
     # appeals menu
 
     @log_decorator
-    def rejecting_appeals(self):
-        pass
+    def rejecting_appeals(self) -> bool:
+        self.__appeals_menu.rejecting_appeals()
+        return True
 
     @log_decorator
     def approved_appeals(self):

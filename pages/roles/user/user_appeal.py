@@ -102,10 +102,17 @@ class UserAppealPageUser:
 
     @log_decorator
     def check_appeal(self):
-        pass
+        all_appeals = self.get_my_request()
+        if all_appeals is None or len(all_appeals) == 0:
+            return False
+        for appeal in all_appeals:
+            if appeal['season_status'] != 'end':
+                return True
+        return False
 
     @log_decorator
     def send_request(self):
+        self.check_appeal()
         active_user = get_active_user()
         active_season = self.get_active_season()
         if active_season is None or active_season is False:

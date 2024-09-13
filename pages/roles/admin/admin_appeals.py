@@ -22,6 +22,7 @@ class AdminAppealsPageAdmin:
         query = '''
         select a.id          as a_id,
            a.name        as a_name,
+           a.seasons_id as a_season_id,
            a.status         as a_status,
            a.description as a_description,
            a.price       as a_price,
@@ -40,7 +41,9 @@ class AdminAppealsPageAdmin:
                  inner join regions r on d.REGION_ID = r.ID
                  inner join SEASONS S on S.ID = a.SEASONS_ID
                  inner join users u on u.ID = a.USER_ID
+        where a.season_status = 'appeal'
         '''
+        param=()
         if status is not None:
             query = '''
                     select a.id          as a_id,

@@ -1,4 +1,5 @@
 from components.color_text.color_text import color_text
+from components.pagination.pagination import Pagination
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
 
@@ -14,7 +15,8 @@ class UserSeason:
 
     @log_decorator
     def switch_category(self):
-        pass
+        pagination = Pagination(table_name='categories', table_keys=['id', 'name'], display_keys=['ID', 'Name'])
+        return pagination.page_tab()
 
     @log_decorator
     def switch_appeal(self, season_id):

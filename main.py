@@ -1,6 +1,7 @@
 from main_files.decorator.decorator_func import log_decorator
 from pages.auth.auth import Auth
 from pages.roles.admin.admin import Admin
+from pages.roles.user.user import User
 
 
 @log_decorator
@@ -97,6 +98,8 @@ def user_season_menu():
 
 @log_decorator
 def user_appeal_menu():
+    print("Waiting...")
+    user = User()
     text = '''
 1. Send appeal
 2. My request

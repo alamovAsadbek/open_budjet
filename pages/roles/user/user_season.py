@@ -76,6 +76,10 @@ class UserSeason:
         return execute_query(query, params, fetch='one')
 
     @log_decorator
+    def check_vote(self):
+        pass
+
+    @log_decorator
     def voting_user(self):
         print(color_text('Waiting...', 'cyan'))
         get_active_season = self.get_active_season()

@@ -209,6 +209,8 @@ def admin_seasons_menu():
 
 @log_decorator
 def admin_categories_menu():
+    print("Waiting...")
+    admin = Admin()
     text = '''
 1. Create new categories
 2. Update existing categories

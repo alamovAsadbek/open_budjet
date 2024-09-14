@@ -153,4 +153,11 @@ class UserSeason:
         if get_all_votes is None or get_all_votes is False:
             print(color_text('You haven\'t voted yet', 'yellow'))
             return False
-        pagination = Pagination(table_name='votes', )
+        pagination = Pagination(table_name='votes',
+                                table_keys=['s_name', 's_status', 'c_name', 'a_name', 'a_description', 'r_name',
+                                            'd_name'],
+                                display_keys=['Season name', 'Season status', 'Category name', 'Appeal name',
+                                              'Appeal description', 'Region name', 'District name'], is_sorted='v_id')
+        if not pagination.page_tab():
+            return False
+        return True

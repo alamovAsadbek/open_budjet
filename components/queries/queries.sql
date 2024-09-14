@@ -419,4 +419,7 @@ FROM appeals a
          inner join SEASONS S on S.ID = a.SEASONS_ID
          inner join users u on u.ID = a.USER_ID;
 
-select * from appeals;
+-- userni parolini yangilash uchun query
+UPDATE users
+SET PASSWORD='%s'
+WHERE ID = '%s';

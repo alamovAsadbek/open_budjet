@@ -1,3 +1,5 @@
+import threading
+
 from components.color_text.color_text import color_text
 from components.pagination.pagination import Pagination
 from main_files.database.db_setting import execute_query, get_active_user
@@ -118,3 +120,6 @@ class UserSeason:
         INSERT INTO votes (user_id, appeal_id) VALUES (%s, %s);
         '''
         params = (get_active_user()['id'], switch_appeal['id'])
+        threading.Thread(target=execute_query, args=(query, params)).start()
+        print(color_text('Your voted for this season!', 'green'))
+        return True

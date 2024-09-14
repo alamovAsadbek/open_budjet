@@ -41,6 +41,8 @@ def auth_menu():
 
 @log_decorator
 def user_menu():
+    print("Waiting...")
+    user = User()
     text = '''
 1. Appeal
 2. Season

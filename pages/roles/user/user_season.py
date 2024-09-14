@@ -124,3 +124,7 @@ class UserSeason:
         threading.Thread(target=execute_query, args=(query, params)).start()
         print(color_text('Your voted for this season!', 'green'))
         return True
+
+    @log_decorator
+    def my_votes(self):
+        pass

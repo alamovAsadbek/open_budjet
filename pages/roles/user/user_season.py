@@ -1,6 +1,6 @@
 from components.color_text.color_text import color_text
 from components.pagination.pagination import Pagination
-from main_files.database.db_setting import execute_query
+from main_files.database.db_setting import execute_query, get_active_user
 from main_files.decorator.decorator_func import log_decorator
 
 
@@ -77,7 +77,16 @@ class UserSeason:
 
     @log_decorator
     def check_vote(self):
-        pass
+        query = '''
+        select *
+        from votes v
+                 inner join appeals a on a.ID = v.APPEAL_ID
+                 inner join SEASONS S on S.ID = a.SEASONS_ID
+        where s.STATUS != 'end'
+          and v.user_id = %s;
+        '''
+        params = (get_active_user()['id'],)
+        return execute_query(query, params, fetch='one')
 
     @log_decorator
     def voting_user(self):
@@ -101,4 +110,7 @@ class UserSeason:
         switch_appeal = self.switch_appeal(get_appeals)
         if switch_appeal is None or switch_appeal is False:
             print(color_text('Appeal not found!', 'yellow'))
+            return False
+        if self.check_vote() is not None:
+            print(color_text('You voted for this season!', 'yellow'))
             return False

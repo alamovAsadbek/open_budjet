@@ -127,4 +127,20 @@ class UserSeason:
 
     @log_decorator
     def my_votes(self):
+        query = '''
+        select s.name        as s_name,
+       s.STATUS      as s_status,
+       c.NAME        as c_name,
+       a.NAME        as a_name,
+       a.DESCRIPTION as a_description,
+       r.name        as r_name,
+       d.name        as d_name
+        from votes v
+                 inner join appeals a on a.ID = v.APPEAL_ID
+                 inner join SEASONS s on S.ID = a.SEASONS_ID
+                 inner join categories c on c.ID = a.CATEGORY_ID
+                 inner join regions r on a.REGION_ID = r.ID
+                 inner join districts d on d.ID = a.DISTRICTS_ID
+        where v.user_id = %s;
+        '''
         pass

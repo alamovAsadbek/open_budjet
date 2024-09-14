@@ -96,7 +96,7 @@ class AdminSeasonsPageAdmin:
     def show_all_seasons(self) -> bool:
         print(color_text('Waiting...', color='cyan'))
         pagination = Pagination(table_name='seasons', table_keys=['id', 'name', 'status', 'created_at'],
-                                display_keys=["ID", "Name", "Status", "Created At"])
+                                display_keys=["ID", "Name", "Status", "Created At"], is_sorted='created_at')
         if not pagination.page_tab():
             return False
         return True

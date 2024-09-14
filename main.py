@@ -179,6 +179,8 @@ def admin_appeals_menu():
 
 @log_decorator
 def admin_seasons_menu():
+    print("Waiting...")
+    admin = Admin()
     text = '''
 1. Create new season
 2. Update existing season's status

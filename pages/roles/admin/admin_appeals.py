@@ -94,7 +94,7 @@ class AdminAppealsPageAdmin:
                                 display_keys=['Appeal ID', 'Appeal Name', 'Appeal Description', 'Appeal Price (uzs)',
                                               'Appeal Status', 'User first_name', 'User last_name', 'User email',
                                               'Category name', 'Region name', 'District name', 'Season name'],
-                                data=get_appeals)
+                                data=get_appeals, is_sorted='a_id')
         if not pagination.page_tab():
             return False
         return True

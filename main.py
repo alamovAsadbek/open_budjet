@@ -71,6 +71,8 @@ def user_menu():
 
 @log_decorator
 def user_season_menu():
+    print("Waiting...")
+    user = User()
     text = '''
 1. Voting
 2. Statistics

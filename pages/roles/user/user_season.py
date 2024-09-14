@@ -91,7 +91,7 @@ class UserSeason:
         return execute_query(query, params, fetch='one')
 
     @log_decorator
-    def confirm_vote(self):
+    def confirm_vote(self, user_email: str):
         pass
 
     @log_decorator

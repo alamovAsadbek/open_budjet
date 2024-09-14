@@ -17,11 +17,15 @@ class UserProfile:
         while True:
             update_check = input('Do you want to update your profile (y/n): ').strip().lower()
             if update_check == 'y':
+                print(color_text('Profile update', 'magenta'))
                 self.update_profile()
+
             elif update_check == 'n':
-                break
+                print(color_text('Exit', 'magenta'))
             else:
                 print(color_text('Wrong input', 'yellow'))
+                continue
+            break
         return True
 
     @log_decorator

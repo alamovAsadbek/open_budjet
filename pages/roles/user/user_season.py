@@ -91,6 +91,9 @@ class UserSeason:
     @log_decorator
     def voting_user(self):
         print(color_text('Waiting...', 'cyan'))
+        if self.check_vote() is not None:
+            print(color_text('You voted for this season!', 'yellow'))
+            return False
         get_active_season = self.get_active_season()
         if get_active_season is None:
             print(color_text('Active season not found', 'yellow'))
@@ -110,7 +113,4 @@ class UserSeason:
         switch_appeal = self.switch_appeal(get_appeals)
         if switch_appeal is None or switch_appeal is False:
             print(color_text('Appeal not found!', 'yellow'))
-            return False
-        if self.check_vote() is not None:
-            print(color_text('You voted for this season!', 'yellow'))
             return False

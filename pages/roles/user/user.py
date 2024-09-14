@@ -39,5 +39,4 @@ class User:
     def my_profile(self) -> bool:
         self.__profile_menu.show_profile()
         return True
-
     # /profile

@@ -7,5 +7,6 @@ class UserProfile:
         self.__active_user = get_active_user()
 
     @log_decorator
-    def show_profile(self):
-        pass
+    def show_profile(self) -> bool:
+        print(self.__active_user)
+        return True

@@ -21,7 +21,7 @@ class Pagination:
             query += " WHERE user_id = '{}'".format(self.user_id)
 
         if self.is_sorted is not None:
-            query += " ORDER BY {}".format(self.is_sorted)
+            query += " ORDER BY {} DESC".format(self.is_sorted)
         return execute_query(query, fetch='all')
 
     @log_decorator

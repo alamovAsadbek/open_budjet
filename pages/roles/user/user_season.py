@@ -87,7 +87,7 @@ class UserSeason:
         where s.STATUS != 'end'
           and v.user_id = %s;
         '''
-        params = (user_id)
+        params = (user_id,)
         return execute_query(query, params, fetch='one')
 
     @log_decorator

@@ -96,7 +96,7 @@ class UserSeason:
 
     @log_decorator
     def confirm_vote(self, user_email: str):
-        pass
+        print(color_text("A verification code has been sent to the mail. Mail: ", 'magenta'), user_email)
 
     @log_decorator
     def voting_user(self):

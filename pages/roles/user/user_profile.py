@@ -8,6 +8,7 @@ from main_files.decorator.decorator_func import log_decorator
 class UserProfile:
     @log_decorator
     def show_profile(self) -> bool:
+        print(color_text('Waiting...', 'cyan'))
         print(get_active_user())
         while True:
             update_check = input('Do you want to update your profile (y/n): ').strip().lower()

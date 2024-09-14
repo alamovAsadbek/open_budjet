@@ -12,7 +12,8 @@ class AdminUsersPageAdmin:
     def show_all_users(self):
         print(color_text('Waiting...', 'cyan'))
         pagination = Pagination(table_name='users', table_keys=['id', 'first_name', 'last_name', 'email', 'created_at'],
-                                display_keys=['ID', 'First name', 'Last name', 'Email', 'Registered'])
+                                display_keys=['ID', 'First name', 'Last name', 'Email', 'Registered'],
+                                is_sorted='created_at')
         if not pagination.page_tab():
             return False
         return True

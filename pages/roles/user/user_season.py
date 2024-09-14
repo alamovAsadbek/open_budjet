@@ -7,6 +7,9 @@ from main_files.decorator.decorator_func import log_decorator
 
 
 class UserSeason:
+    def __init__(self):
+        pass
+
     @log_decorator
     def get_active_season(self):
         query = '''

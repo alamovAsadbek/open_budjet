@@ -36,4 +36,5 @@ class UserProfile:
             print(color_text('Passwords do not match!', 'red'))
             password: str = hashlib.sha256(input("Enter new password: ").strip().encode('utf-8')).hexdigest()
             confirm_password: str = hashlib.sha256(input("Confirm password: ").strip().encode('utf-8')).hexdigest()
+        print(color_text('Profile updated', 'green'))
         return True

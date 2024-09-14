@@ -12,12 +12,16 @@ class Pagination:
         self.user_id = user_id
         self.data = data
         self.display_keys = display_keys
+        self.is_sorted = is_sorted
 
     @log_decorator
     def __read_table(self) -> list:
         query = "SELECT * FROM {}".format(self.table_name)
         if self.user_id is not None:
             query += " WHERE user_id = '{}'".format(self.user_id)
+
+        if self.is_sorted is not None:
+            query += " ORDER BY {}".format(self.is_sorted)
         return execute_query(query, fetch='all')
 
     @log_decorator

@@ -37,6 +37,7 @@ class User:
 
     @log_decorator
     def my_profile(self) -> bool:
-        pass
+        self.__profile_menu.show_profile()
+        return True
 
     # /profile

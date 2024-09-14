@@ -1,7 +1,6 @@
 from main_files.decorator.decorator_func import log_decorator
 from pages.auth.auth import Auth
 from pages.roles.admin.admin import Admin
-from pages.roles.user.user import User
 
 
 @log_decorator
@@ -240,6 +239,8 @@ def admin_categories_menu():
 
 @log_decorator
 def admin_users_menu():
+    print("Waiting...")
+    admin = Admin()
     text = '''
 1. Update existing users
 2. Delete existing users
@@ -269,6 +270,6 @@ if __name__ == '__main__':
     print("Waiting...")
     auth = Auth()
     auth.logout()
-    admin = Admin()
-    user = User()
+    # admin = Admin()
+    # user = User()
     auth_menu()

@@ -78,7 +78,7 @@ class UserSeason:
         return execute_query(query, params, fetch='one')
 
     @log_decorator
-    def check_vote(self):
+    def check_vote(self, user_id: int):
         query = '''
         select *
         from votes v
@@ -87,13 +87,14 @@ class UserSeason:
         where s.STATUS != 'end'
           and v.user_id = %s;
         '''
-        params = (get_active_user()['id'],)
+        params = (user_id)
         return execute_query(query, params, fetch='one')
 
     @log_decorator
     def voting_user(self):
         print(color_text('Waiting...', 'cyan'))
-        if self.check_vote() is not None:
+        active_user = get_active_user()
+        if self.check_vote(active_user['id']) is not None:
             print(color_text('You voted for this season!', 'yellow'))
             return False
         get_active_season = self.get_active_season()
@@ -119,7 +120,7 @@ class UserSeason:
         query = '''
         INSERT INTO votes (user_id, appeal_id) VALUES (%s, %s);
         '''
-        params = (get_active_user()['id'], switch_appeal['id'])
+        params = (active_user['id'], switch_appeal['id'])
         threading.Thread(target=execute_query, args=(query, params)).start()
         print(color_text('Your voted for this season!', 'green'))
         return True

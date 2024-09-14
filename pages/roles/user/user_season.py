@@ -135,7 +135,9 @@ class UserSeason:
                a.NAME        as a_name,
                a.DESCRIPTION as a_description,
                r.name        as r_name,
-               d.name        as d_name
+               d.name        as d_name,
+               v.id as v_id
+               
                 from votes v
                          inner join appeals a on a.ID = v.APPEAL_ID
                          inner join SEASONS s on S.ID = a.SEASONS_ID
@@ -152,3 +154,4 @@ class UserSeason:
         if get_all_votes is None or get_all_votes is False:
             print(color_text('You haven\'t voted yet', 'yellow'))
             return False
+        pagination = Pagination(table_name='votes', )

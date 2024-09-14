@@ -11,9 +11,9 @@ class UserProfile:
         print(color_text('Waiting...', 'cyan'))
         active_user = get_active_user()
         print(f"\n{color_text('First name: ', 'blue')}{active_user['first_name']}\n"
-              f"{color_text('Last name', 'blue')}{active_user['last_name']}\n"
-              f"{color_text('Email', 'blue')}{active_user['email']}\n"
-              f"{color_text('Registered', 'blue')}{active_user['created_at']}\n")
+              f"{color_text('Last name: ', 'blue')}{active_user['last_name']}\n"
+              f"{color_text('Email: ', 'blue')}{active_user['email']}\n"
+              f"{color_text('Registered: ', 'blue')}{active_user['created_at']}\n")
         while True:
             update_check = input('Do you want to update your profile (y/n): ').strip().lower()
             if update_check == 'y':

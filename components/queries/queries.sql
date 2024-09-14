@@ -423,3 +423,11 @@ FROM appeals a
 UPDATE users
 SET PASSWORD='%s'
 WHERE ID = '%s';
+
+-- User sezon uchun ovoz berganligini tekshirish uchun query
+select *
+from votes v
+         inner join appeals a on a.ID = v.APPEAL_ID
+         inner join SEASONS S on S.ID = a.SEASONS_ID
+where s.STATUS != 'end'
+  and v.user_id = '% s';

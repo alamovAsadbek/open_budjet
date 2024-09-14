@@ -65,10 +65,10 @@ class UserSeason:
                                               'Season name'],
                                 data=data)
         if not pagination.page_tab():
-            return False
+            return None
         appeal_id: int = int(input("Enter the appeal ID or type 0 to exit: ").strip())
         if appeal_id == 0:
-            return False
+            return None
         query = '''
         SELECT * FROM appeals WHERE id=%s;
         '''
@@ -114,3 +114,7 @@ class UserSeason:
         if switch_appeal is None or switch_appeal is False:
             print(color_text('Appeal not found!', 'yellow'))
             return False
+        query = '''
+        INSERT INTO votes (user_id, appeal_id) VALUES (%s, %s);
+        '''
+        params = (get_active_user()['id'], switch_appeal['id'])

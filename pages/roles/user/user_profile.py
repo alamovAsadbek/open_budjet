@@ -1,7 +1,8 @@
 import hashlib
+import threading
 
 from components.color_text.color_text import color_text
-from main_files.database.db_setting import get_active_user
+from main_files.database.db_setting import get_active_user, execute_query
 from main_files.decorator.decorator_func import log_decorator
 
 
@@ -40,5 +41,6 @@ class UserProfile:
         UPDATE users SET PASSWORD=%s WHERE ID=%s;
         '''
         params = (password, active_user['id'])
+        threading.Thread(target=execute_query, args=(query, params,)).start()
         print(color_text('Profile updated', 'green'))
         return True

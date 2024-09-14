@@ -283,6 +283,4 @@ if __name__ == '__main__':
     print("Waiting...")
     auth = Auth()
     auth.logout()
-    # admin = Admin()
-    # user = User()
     auth_menu()

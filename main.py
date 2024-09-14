@@ -55,7 +55,7 @@ def user_menu():
         elif user_input == 2:
             user_season_menu()
         elif user_input == 3:
-            pass
+            user.my_profile()
         elif user_input == 4:
             print("Exit")
             print("Waiting...")

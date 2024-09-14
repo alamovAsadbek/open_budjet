@@ -30,3 +30,11 @@ class User:
         return True
 
     # /season menu
+
+    # profile
+
+    @log_decorator
+    def my_profile(self) -> bool:
+        pass
+    
+    # /profile

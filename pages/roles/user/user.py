@@ -1,5 +1,6 @@
 from main_files.decorator.decorator_func import log_decorator
 from pages.roles.user.user_appeal import UserAppealPageUser
+from pages.roles.user.user_profile import UserProfile
 from pages.roles.user.user_season import UserSeason
 
 
@@ -7,6 +8,7 @@ class User:
     def __init__(self):
         self.__appeals_menu = UserAppealPageUser()
         self.__season_menu = UserSeason()
+        self.__profile_menu = UserProfile()
 
     # appeals menu
 
@@ -36,5 +38,5 @@ class User:
     @log_decorator
     def my_profile(self) -> bool:
         pass
-    
+
     # /profile

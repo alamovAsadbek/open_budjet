@@ -18,7 +18,7 @@ class UserProfile:
             update_check = input('Do you want to update your profile (y/n): ').strip().lower()
             if update_check == 'y':
                 print(color_text('Profile update', 'magenta'))
-                self.update_profile()
+                self.update_profile(active_user)
 
             elif update_check == 'n':
                 print(color_text('Exit', 'magenta'))
@@ -29,12 +29,16 @@ class UserProfile:
         return True
 
     @log_decorator
-    def update_profile(self) -> bool:
+    def update_profile(self, active_user) -> bool:
         password: str = hashlib.sha256(input("Enter new password: ").strip().encode('utf-8')).hexdigest()
         confirm_password: str = hashlib.sha256(input("Confirm password: ").strip().encode('utf-8')).hexdigest()
         while password != confirm_password:
             print(color_text('Passwords do not match!', 'red'))
             password: str = hashlib.sha256(input("Enter new password: ").strip().encode('utf-8')).hexdigest()
             confirm_password: str = hashlib.sha256(input("Confirm password: ").strip().encode('utf-8')).hexdigest()
+        query = '''
+        UPDATE users SET PASSWORD=%s WHERE ID=%s;
+        '''
+        params = (password, active_user['id'])
         print(color_text('Profile updated', 'green'))
         return True

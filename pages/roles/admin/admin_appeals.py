@@ -85,7 +85,7 @@ class AdminAppealsPageAdmin:
     def show_appeals(self, status):
         get_appeals = self.get_appeals(status=status)
         if get_appeals is False or get_appeals is None:
-            print(color_text('Rejected appeals not found!', 'yellow'))
+            print(color_text('Appeals not found!', 'yellow'))
             return False
         pagination = Pagination(table_name='appeals',
                                 table_keys=['a_id', 'a_name', 'a_description', 'a_price', 'a_status', 'u_first_name',

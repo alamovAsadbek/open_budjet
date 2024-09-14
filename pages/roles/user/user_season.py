@@ -126,6 +126,10 @@ class UserSeason:
         return True
 
     @log_decorator
+    def get_my_votes(self):
+        pass
+
+    @log_decorator
     def my_votes(self):
         query = '''
         select s.name        as s_name,

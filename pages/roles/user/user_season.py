@@ -91,6 +91,10 @@ class UserSeason:
         return execute_query(query, params, fetch='one')
 
     @log_decorator
+    def confirm_vote(self):
+        pass
+
+    @log_decorator
     def voting_user(self):
         print(color_text('Waiting...', 'cyan'))
         active_user = get_active_user()
@@ -161,3 +165,4 @@ class UserSeason:
         if not pagination.page_tab():
             return False
         return True
+    # ovoz berishga pochtaga xabar boradigan qilish

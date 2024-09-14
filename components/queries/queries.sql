@@ -419,4 +419,4 @@ FROM appeals a
          inner join SEASONS S on S.ID = a.SEASONS_ID
          inner join users u on u.ID = a.USER_ID;
 
-select * from users;
+select * from appeals;

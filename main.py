@@ -152,6 +152,8 @@ def admin_menu():
 
 @log_decorator
 def admin_appeals_menu():
+    print("Waiting...")
+    admin = Admin()
     text = '''
 1. Rejecting appeals
 2. Approved appeals

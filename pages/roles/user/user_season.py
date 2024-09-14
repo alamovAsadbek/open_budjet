@@ -136,8 +136,7 @@ class UserSeason:
                a.DESCRIPTION as a_description,
                r.name        as r_name,
                d.name        as d_name,
-               v.id as v_id
-               
+               v.id as v_id   
                 from votes v
                          inner join appeals a on a.ID = v.APPEAL_ID
                          inner join SEASONS s on S.ID = a.SEASONS_ID

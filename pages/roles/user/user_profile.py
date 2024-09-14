@@ -10,3 +10,7 @@ class UserProfile:
     def show_profile(self) -> bool:
         print(self.__active_user)
         return True
+
+    @log_decorator
+    def update_profile(self) -> bool:
+        pass

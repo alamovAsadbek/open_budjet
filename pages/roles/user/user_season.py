@@ -148,5 +148,7 @@ class UserSeason:
 
     @log_decorator
     def my_votes(self):
-
-        pass
+        get_all_votes = self.get_my_votes()
+        if get_all_votes is None or get_all_votes is False:
+            print(color_text('You haven\'t voted yet', 'yellow'))
+            return False

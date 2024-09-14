@@ -431,3 +431,19 @@ from votes v
          inner join SEASONS S on S.ID = a.SEASONS_ID
 where s.STATUS != 'end'
   and v.user_id = '% s';
+
+-- User ovoz bergan murojaatlarini topish uchun query
+select s.name        as s_name,
+       s.STATUS      as s_status,
+       c.NAME        as c_name,
+       a.NAME        as a_name,
+       a.DESCRIPTION as a_description,
+       r.name        as r_name,
+       d.name        as d_name
+from votes v
+         inner join appeals a on a.ID = v.APPEAL_ID
+         inner join SEASONS s on S.ID = a.SEASONS_ID
+         inner join categories c on c.ID = a.CATEGORY_ID
+         inner join regions r on a.REGION_ID = r.ID
+         inner join districts d on d.ID = a.DISTRICTS_ID
+where v.user_id = 3;

@@ -1,6 +1,7 @@
 import threading
 
 from components.color_text.color_text import color_text
+from components.email_sender.email_sender import EmailSender
 from components.pagination.pagination import Pagination
 from main_files.database.db_setting import execute_query, get_active_user
 from main_files.decorator.decorator_func import log_decorator
@@ -8,7 +9,7 @@ from main_files.decorator.decorator_func import log_decorator
 
 class UserSeason:
     def __init__(self):
-        pass
+        self.__email_sender = EmailSender()
 
     @log_decorator
     def get_active_season(self):

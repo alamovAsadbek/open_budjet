@@ -6,12 +6,9 @@ from main_files.decorator.decorator_func import log_decorator
 
 
 class UserProfile:
-    def __init__(self):
-        self.__active_user = get_active_user()
-
     @log_decorator
     def show_profile(self) -> bool:
-        print(self.__active_user)
+        print(get_active_user())
         while True:
             update_check = input('Do you want to update your profile (y/n): ').strip().lower()
             if update_check == 'y':

@@ -1,3 +1,3 @@
 class UserProfile:
     def __init__(self):
-        pass
+        self.__active_user = 0

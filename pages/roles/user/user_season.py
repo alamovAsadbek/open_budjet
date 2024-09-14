@@ -97,6 +97,7 @@ class UserSeason:
     @log_decorator
     def confirm_vote(self, user_email: str):
         print(color_text("A verification code has been sent to the mail. Mail: ", 'magenta'), user_email)
+        return False
 
     @log_decorator
     def voting_user(self):
@@ -124,6 +125,8 @@ class UserSeason:
         switch_appeal = self.switch_appeal(get_appeals)
         if switch_appeal is None or switch_appeal is False:
             print(color_text('Appeal not found!', 'yellow'))
+            return False
+        if not self.confirm_vote(active_user['email']):
             return False
         query = '''
         INSERT INTO votes (user_id, appeal_id) VALUES (%s, %s);
@@ -169,4 +172,3 @@ class UserSeason:
         if not pagination.page_tab():
             return False
         return True
-    # ovoz berishga pochtaga xabar boradigan qilish

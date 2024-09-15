@@ -1,10 +1,10 @@
 import threading
 
+from admin_categories import AdminCategoryPageAdmin
 from components.color_text.color_text import color_text
 from components.pagination.pagination import Pagination
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
-from admin_categories import AdminCategoryPageAdmin
 
 
 class AdminSeasonsPageAdmin:
@@ -115,6 +115,10 @@ class AdminSeasonsPageAdmin:
     @log_decorator
     def switch_category(self) -> bool:
         print(color_text('Switch Category', color='magenta'))
+        if not self.__category_menu.show_all_categories():
+            return False
+        category_id: int = int(input("Enter category ID: ").strip())
+
 
     @log_decorator
     def __get_statistics(self):

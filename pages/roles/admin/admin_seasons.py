@@ -106,7 +106,7 @@ class AdminSeasonsPageAdmin:
         query = '''
         SELECT * FROM seasons WHERE ID=%s;
         '''
-        result_get = execute_query(query, (season_id,), fetch='one')
+        return execute_query(query, (season_id,), fetch='one')
 
     @log_decorator
     def __get_statistics(self):

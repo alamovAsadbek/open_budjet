@@ -107,13 +107,14 @@ class UserSeason:
             if number_of_attempts == 4:
                 print(color_text('You are out of attempts. Please try again', 'red'))
                 return False
-            print(color_text('Number of Attempts: ', 'magenta'), number_of_attempts)
+            print(color_text('Number of Attempts: ', 'magenta'), number_of_attempts + 1)
             code: int = int(input("Enter the verification code: ").strip())
             if code == confirm_code:
                 print(color_text('Confirm your verification code', 'green'))
                 return True
             else:
                 print(color_text('Please enter an incorrect number and try again', 'yellow'))
+            number_of_attempts += 1
 
     @log_decorator
     def voting_user(self):

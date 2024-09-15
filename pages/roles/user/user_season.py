@@ -239,3 +239,4 @@ class UserSeason:
         if get_category is None or get_category is False:
             print(color_text('Category not found', 'yellow'))
             return False
+        print(self.get_statistics(season_id=get_active_season['id'], category_id=get_category['id']))

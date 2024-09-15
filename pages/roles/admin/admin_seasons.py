@@ -92,10 +92,14 @@ class AdminSeasonsPageAdmin:
     def show_all_seasons(self) -> bool:
         print(color_text('Waiting...', color='cyan'))
         pagination = Pagination(table_name='seasons', table_keys=['id', 'name', 'status', 'created_at'],
-                                display_keys=["ID", "Name", "Status", "Created At"], is_sorted='id')
+                                display_keys=["ID", "Name", "Status", "Created at"], is_sorted='id')
         if not pagination.page_tab():
             return False
         return True
+
+    @log_decorator
+    def switch_season(self) -> bool:
+        pass
 
     @log_decorator
     def __get_statistics(self):

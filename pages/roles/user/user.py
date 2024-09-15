@@ -31,6 +31,10 @@ class User:
         self.__season_menu.voting_user()
         return True
 
+    @log_decorator
+    def my_voting_appeal(self) -> bool:
+        pass
+
     # /season menu
 
     # profile

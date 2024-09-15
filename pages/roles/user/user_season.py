@@ -226,7 +226,6 @@ class UserSeason:
 
     @log_decorator
     def show_statistics(self):
-        active_user = get_active_user()
         get_active_season = self.get_active_season()
         if get_active_season is None:
             print(color_text('Active season not found', 'yellow'))

@@ -193,7 +193,7 @@ class UserSeason:
         return True
 
     @log_decorator
-    def get_statistics(self):
+    def get_statistics(self, season_id: int, category_id: int):
         query = '''
         SELECT a.id AS a_id,
                a.name AS a_name,
@@ -221,7 +221,8 @@ class UserSeason:
         GROUP BY a.id, a.name, a.description, a.price, a.status, c.id, c.name, r.name, d.name, s.id, s.name, s.status, s.created_at
 
         '''
-        pass
+        params = (season_id, category_id,)
+        return execute_query(query, params, fetch='all')
 
     @log_decorator
     def show_statistics(self):

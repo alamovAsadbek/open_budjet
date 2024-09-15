@@ -175,5 +175,4 @@ class UserSeason:
                                               'Appeal description', 'Region name', 'District name'], is_sorted='v_id')
         if not pagination.page_tab():
             return False
-
         return True

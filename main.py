@@ -87,7 +87,7 @@ def user_season_menu():
         elif user_input == 2:
             pass
         elif user_input == 3:
-            pass
+            user.my_voting_appeal()
         elif user_input == 4:
             user_menu()
         else:

@@ -102,8 +102,18 @@ class UserSeason:
         email_subject: str = 'Confirm Your Verification Code'
         email_body: str = f'Enter the verification code into the program and vote. Confirm password is {confirm_code}'
         threading.Thread(target=self.__email_sender.send_email, args=(email_subject, email_body, user_email)).start()
+        number_of_attempts = 0
         while True:
-            pass
+            if number_of_attempts == 4:
+                print(color_text('You are out of attempts. Please try again', 'red'))
+                return False
+            print(color_text('Number of Attempts: ', 'magenta'), number_of_attempts)
+            code: int = int(input("Enter the verification code: ").strip())
+            if code == confirm_code:
+                print(color_text('Confirm your verification code', 'green'))
+                return True
+            else:
+                print(color_text('Please enter an incorrect number and try again', 'yellow'))
 
     @log_decorator
     def voting_user(self):

@@ -245,7 +245,6 @@ class UserSeason:
             'a_description'
             'a_price'
             'a_status'
-            'category_id'
             'category_name'
             'region_name'
             'districts_name'
@@ -254,5 +253,6 @@ class UserSeason:
             'season_status'
             'season_created'
             'vote_count'], display_keys=['Appeal ID', 'Appeal name', 'Appeal description', 'Appeal price',
-                                         'Appeal status'])
+                                         'Appeal status', 'Category name', 'Region name', 'District name' 'Season ID',
+                                         'Season name', 'Season status', 'Season created', 'Vote count'])
         print(self.get_statistics(season_id=get_active_season['id'], category_id=get_category['id']))

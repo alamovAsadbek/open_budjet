@@ -167,6 +167,7 @@ class UserSeason:
         pagination = Pagination(table_name='votes',
                                 table_keys=['s_name', 's_status', 'c_name', 'a_name', 'a_description', 'r_name',
                                             'd_name'],
+                                data=get_all_votes,
                                 display_keys=['Season name', 'Season status', 'Category name', 'Appeal name',
                                               'Appeal description', 'Region name', 'District name'], is_sorted='v.id')
         if not pagination.page_tab():

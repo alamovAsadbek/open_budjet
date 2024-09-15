@@ -1,10 +1,10 @@
 import threading
 
-from admin_categories import AdminCategoryPageAdmin
 from components.color_text.color_text import color_text
 from components.pagination.pagination import Pagination
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
+from pages.roles.admin.admin_categories import AdminCategoryPageAdmin
 
 
 class AdminSeasonsPageAdmin:

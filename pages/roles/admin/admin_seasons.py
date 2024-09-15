@@ -133,3 +133,5 @@ class AdminSeasonsPageAdmin:
         if get_category is None or get_category is False:
             print(color_text('\nCategory not found', color='red'))
             return False
+        if get_season['status'] != 'end':
+            pass

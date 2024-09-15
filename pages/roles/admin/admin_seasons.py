@@ -8,10 +8,6 @@ from main_files.decorator.decorator_func import log_decorator
 
 class AdminSeasonsPageAdmin:
     @log_decorator
-    def check_seasons(self):
-        pass
-
-    @log_decorator
     def switch_districts(self) -> bool or list:
         print(color_text("Switch districts", color='blue'))
         query = '''

@@ -110,7 +110,8 @@ class AdminSeasonsPageAdmin:
 
     @log_decorator
     def switch_category(self) -> bool:
-        pass
+        print(color_text('Switch Category', color='magenta'))
+
 
     @log_decorator
     def __get_statistics(self):

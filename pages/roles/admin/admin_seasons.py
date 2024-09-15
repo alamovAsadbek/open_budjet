@@ -99,7 +99,9 @@ class AdminSeasonsPageAdmin:
 
     @log_decorator
     def switch_season(self) -> bool:
-        pass
+        print(color_text('Switch Season', color='magenta'))
+        if not self.show_all_seasons():
+            return False
 
     @log_decorator
     def __get_statistics(self):

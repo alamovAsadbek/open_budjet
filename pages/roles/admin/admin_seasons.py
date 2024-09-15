@@ -163,3 +163,7 @@ class AdminSeasonsPageAdmin:
         if get_season['status'] == 'end':
             query += 'LIMIT 3'
         return execute_query(query, (get_season['id'], get_category['id']), fetch='all')
+
+    @log_decorator
+    def show_all_statistics(self) -> bool:
+        pass

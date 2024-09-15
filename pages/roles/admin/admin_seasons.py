@@ -166,4 +166,7 @@ class AdminSeasonsPageAdmin:
 
     @log_decorator
     def show_all_statistics(self) -> bool:
-        pass
+        get_statistics = self.__get_statistics()
+        if get_statistics is None or get_statistics is False:
+            print(color_text('\nSeason not found', color='red'))
+            return False

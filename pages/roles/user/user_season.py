@@ -160,10 +160,6 @@ class UserSeason:
 
     @log_decorator
     def my_votes(self):
-        datas = [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
-        dat_id = int(input("Enter data id: ").strip())
-        if dat_id not in datas:
-            print("Data not found")
         get_all_votes = self.get_my_votes()
         if get_all_votes is None or get_all_votes is False:
             print(color_text('You haven\'t voted yet', 'yellow'))

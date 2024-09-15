@@ -125,4 +125,11 @@ class AdminSeasonsPageAdmin:
 
     @log_decorator
     def __get_statistics(self):
-        pass
+        get_season = self.switch_season()
+        if get_season is None or get_season is False:
+            print(color_text('\nSeason not found', color='red'))
+            return False
+        get_category = self.switch_category()
+        if get_category is None or get_category is False:
+            print(color_text('\nCategory not found', color='red'))
+            return False

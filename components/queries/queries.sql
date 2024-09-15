@@ -449,3 +449,31 @@ from votes v
          inner join regions r on a.REGION_ID = r.ID
          inner join districts d on d.ID = a.DISTRICTS_ID
 where v.user_id = '% s';
+
+-- user aktiv sezon uchun statiskani ko'rish uchun query
+SELECT a.id               AS a_id,
+       a.name             AS a_name,
+       a.description      AS a_description,
+       a.price            AS a_price,
+       a.status           AS a_status,
+       c.id               AS category_id,
+       c.name             AS category_name,
+       r.name             AS region_name,
+       d.name             AS districts_name,
+       s.id               AS season_id,
+       s.name             AS season_name,
+       s.status           AS season_status,
+       s.created_at       AS season_created,
+       COUNT(v.appeal_id) AS vote_count
+FROM appeals a
+         INNER JOIN categories c ON c.ID = a.CATEGORY_ID
+         INNER JOIN districts d ON a.DISTRICTS_ID = d.ID
+         INNER JOIN regions r ON d.REGION_ID = r.ID
+         INNER JOIN SEASONS s ON s.ID = a.SEASONS_ID
+         LEFT JOIN votes v ON v.appeal_id = a.id
+WHERE a.status = 'approved'
+  AND s.id = '% s'
+  AND c.id = '% s'
+GROUP BY a.id, a.name, a.description, a.price, a.status, c.id, c.name,
+         r.name, d.name, s.id, s.name, s.status, s.created_at
+ORDER BY vote_count DESC;

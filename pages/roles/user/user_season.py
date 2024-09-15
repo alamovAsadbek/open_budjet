@@ -191,3 +191,7 @@ class UserSeason:
         if not pagination.page_tab():
             return False
         return True
+
+    @log_decorator
+    def get_statistics(self):
+        pass

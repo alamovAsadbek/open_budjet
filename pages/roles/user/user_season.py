@@ -3,6 +3,7 @@ import threading
 from components.color_text.color_text import color_text
 from components.email_sender.email_sender import EmailSender
 from components.pagination.pagination import Pagination
+from components.random_password.generate_password import generate_password
 from main_files.database.db_setting import execute_query, get_active_user
 from main_files.decorator.decorator_func import log_decorator
 
@@ -95,9 +96,14 @@ class UserSeason:
         return execute_query(query, params, fetch='one')
 
     @log_decorator
-    def confirm_vote(self, user_email: str):
+    def confirm_vote(self, user_email: str) -> bool:
         print(color_text("A verification code has been sent to the mail. Mail: ", 'magenta'), user_email)
-        return False
+        confirm_code: int = generate_password()
+        email_subject: str = 'Confirm Your Verification Code'
+        email_body: str = f'Enter the verification code into the program and vote. Confirm password is {confirm_code}'
+        threading.Thread(target=self.__email_sender.send_email, args=(email_subject, email_body, user_email)).start()
+        while True:
+            pass
 
     @log_decorator
     def voting_user(self):

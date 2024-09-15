@@ -98,7 +98,7 @@ class AdminSeasonsPageAdmin:
         return True
 
     @log_decorator
-    def switch_season(self) -> bool:
+    def switch_season(self) -> bool or list:
         print(color_text('Switch Season', color='magenta'))
         if not self.show_all_seasons():
             return False
@@ -107,6 +107,10 @@ class AdminSeasonsPageAdmin:
         SELECT * FROM seasons WHERE ID=%s;
         '''
         return execute_query(query, (season_id,), fetch='one')
+
+    @log_decorator
+    def switch_category(self) -> bool:
+        pass
 
     @log_decorator
     def __get_statistics(self):

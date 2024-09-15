@@ -218,8 +218,9 @@ class UserSeason:
         WHERE a.status = 'approved'
           AND s.id = %s
           AND c.id = %s
-        GROUP BY a.id, a.name, a.description, a.price, a.status, c.id, c.name, r.name, d.name, s.id, s.name, s.status, s.created_at
-
+        GROUP BY a.id, a.name, a.description, a.price, a.status, c.id, c.name, 
+        r.name, d.name, s.id, s.name, s.status, s.created_at
+        ORDER BY vote_count DESC;
         '''
         params = (season_id, category_id,)
         return execute_query(query, params, fetch='all')

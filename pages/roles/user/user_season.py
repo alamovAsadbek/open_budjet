@@ -241,18 +241,18 @@ class UserSeason:
             return False
         get_statistics = self.get_statistics(season_id=get_active_season['id'], category_id=get_category['id'])
         pagination = Pagination(table_name='votes', table_keys=[
-            'a_id'
-            'a_name'
-            'a_description'
-            'a_price'
-            'a_status'
-            'category_name'
-            'region_name'
-            'districts_name'
-            'season_id'
-            'season_name'
-            'season_status'
-            'season_created'
+            'a_id',
+            'a_name',
+            'a_description',
+            'a_price',
+            'a_status',
+            'category_name',
+            'region_name',
+            'districts_name',
+            'season_id',
+            'season_name',
+            'season_status',
+            'season_created',
             'vote_count'], display_keys=['Appeal ID', 'Appeal name', 'Appeal description', 'Appeal price',
                                          'Appeal status', 'Category name', 'Region name', 'District name' 'Season ID',
                                          'Season name', 'Season status', 'Season created', 'Vote count'],

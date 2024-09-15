@@ -203,7 +203,7 @@ def admin_seasons_menu():
         elif user_input == 2:
             admin.update_season_status()
         elif user_input == 3:
-            pass
+            admin.show_statistics()
         elif user_input == 4:
             admin.show_all_seasons()
         elif user_input == 5:

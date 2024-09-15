@@ -222,3 +222,7 @@ class UserSeason:
 
         '''
         pass
+
+    @log_decorator
+    def show_statistics(self):
+        pass

@@ -225,4 +225,16 @@ class UserSeason:
 
     @log_decorator
     def show_statistics(self):
-        pass
+        active_user = get_active_user()
+        get_active_season = self.get_active_season()
+        if get_active_season is None:
+            print(color_text('Active season not found', 'yellow'))
+            return False
+        print(
+            f"\n{color_text('Season name: ', 'blue')} {get_active_season['name']}\n"
+            f"{color_text('Season status: ', 'blue')} {get_active_season['status']}\n")
+        print(color_text('Waiting...', 'cyan'))
+        get_category = self.switch_category()
+        if get_category is None or get_category is False:
+            print(color_text('Category not found', 'yellow'))
+            return False

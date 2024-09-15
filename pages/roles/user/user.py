@@ -36,6 +36,10 @@ class User:
         self.__season_menu.my_votes()
         return True
 
+    @log_decorator
+    def show_statistics(self):
+        pass
+
     # /season menu
 
     # profile

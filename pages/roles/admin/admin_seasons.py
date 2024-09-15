@@ -4,11 +4,12 @@ from components.color_text.color_text import color_text
 from components.pagination.pagination import Pagination
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
+from admin_categories import AdminCategoryPageAdmin
 
 
 class AdminSeasonsPageAdmin:
     def __init__(self):
-        pass
+        self.__category_menu = AdminCategoryPageAdmin()
 
     @log_decorator
     def switch_districts(self) -> bool or list:

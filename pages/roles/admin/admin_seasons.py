@@ -157,8 +157,9 @@ class AdminSeasonsPageAdmin:
         WHERE a.status = 'approved'
           AND s.id = %s
           AND c.id = %s
-        GROUP BY a.id, a.name, a.description, a.price, a.status, c.id, c.name, r.name, d.name, s.id, s.name, s.status, s.created_at
-        ORDER BY v.id DESC
+        GROUP BY a.id, a.name, a.description, a.price, a.status, 
+        c.id, c.name, r.name, d.name, s.id, s.name, s.status, s.created_at
+        ORDER BY vote_count DESC
         '''
         if get_season['status'] == 'end':
             query += 'LIMIT 3'

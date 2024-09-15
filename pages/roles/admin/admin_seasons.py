@@ -118,7 +118,10 @@ class AdminSeasonsPageAdmin:
         if not self.__category_menu.show_all_categories():
             return False
         category_id: int = int(input("Enter category ID: ").strip())
-
+        query = '''
+        SELECT * FROM categories WHERE ID=%s;
+        '''
+        return execute_query(query, (category_id,), fetch='one')
 
     @log_decorator
     def __get_statistics(self):

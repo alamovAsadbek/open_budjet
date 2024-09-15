@@ -28,6 +28,10 @@ class Admin:
         self.__season_menu.show_all_seasons()
         return True
 
+    @log_decorator
+    def show_statistics(self) -> bool:
+        pass
+
     # / season menu
 
     # category menu

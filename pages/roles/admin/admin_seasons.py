@@ -113,7 +113,7 @@ class AdminSeasonsPageAdmin:
         return execute_query(query, (season_id,), fetch='one')
 
     @log_decorator
-    def switch_category(self) -> bool:
+    def switch_category(self) -> bool or list:
         print(color_text('Switch Category', color='magenta'))
         if not self.__category_menu.show_all_categories():
             return False
@@ -133,7 +133,7 @@ class AdminSeasonsPageAdmin:
         if get_category is None or get_category is False:
             print(color_text('\nCategory not found', color='red'))
             return False
-        query='''
+        query = '''
         SELECT a.id AS a_id,
            a.name AS a_name,
            a.description AS a_description,
@@ -160,3 +160,6 @@ class AdminSeasonsPageAdmin:
         GROUP BY a.id, a.name, a.description, a.price, a.status, c.id, c.name, r.name, d.name, s.id, s.name, s.status, s.created_at
         ORDER BY v.id DESC
         '''
+        if get_season['status'] == 'end':
+            query += 'LIMIT 3'
+        return execute_query(query, (get_season['id'], get_category['id']), fetch='all')

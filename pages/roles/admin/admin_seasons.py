@@ -100,3 +100,7 @@ class AdminSeasonsPageAdmin:
         if not pagination.page_tab():
             return False
         return True
+
+    @log_decorator
+    def __get_statistics(self):
+        pass

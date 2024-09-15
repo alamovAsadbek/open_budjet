@@ -30,7 +30,8 @@ class Admin:
 
     @log_decorator
     def show_statistics(self) -> bool:
-        pass
+        self.__season_menu.show_all_statistics()
+        return True
 
     # / season menu
 

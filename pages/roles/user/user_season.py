@@ -254,7 +254,7 @@ class UserSeason:
             'season_status',
             'season_created',
             'vote_count'], display_keys=['Appeal ID', 'Appeal name', 'Appeal description', 'Appeal price',
-                                         'Appeal status', 'Category name', 'Region name', 'District name' 'Season ID',
+                                         'Appeal status', 'Category name', 'Region name', 'District name', 'Season ID',
                                          'Season name', 'Season status', 'Season created', 'Vote count'],
                                 data=get_statistics)
         if not pagination.page_tab():

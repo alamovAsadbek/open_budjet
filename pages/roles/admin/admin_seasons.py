@@ -7,6 +7,9 @@ from main_files.decorator.decorator_func import log_decorator
 
 
 class AdminSeasonsPageAdmin:
+    def __init__(self):
+        pass
+
     @log_decorator
     def switch_districts(self) -> bool or list:
         print(color_text("Switch districts", color='blue'))
@@ -111,7 +114,6 @@ class AdminSeasonsPageAdmin:
     @log_decorator
     def switch_category(self) -> bool:
         print(color_text('Switch Category', color='magenta'))
-
 
     @log_decorator
     def __get_statistics(self):

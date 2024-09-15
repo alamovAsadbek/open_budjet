@@ -102,6 +102,11 @@ class AdminSeasonsPageAdmin:
         print(color_text('Switch Season', color='magenta'))
         if not self.show_all_seasons():
             return False
+        season_id: int = int(input("Enter season's ID: ").strip())
+        query = '''
+        SELECT * FROM seasons WHERE ID=%s;
+        '''
+        result_get = execute_query(query, (season_id,), fetch='one')
 
     @log_decorator
     def __get_statistics(self):

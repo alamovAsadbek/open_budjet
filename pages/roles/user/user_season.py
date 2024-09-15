@@ -168,7 +168,7 @@ class UserSeason:
                                 table_keys=['s_name', 's_status', 'c_name', 'a_name', 'a_description', 'r_name',
                                             'd_name'],
                                 display_keys=['Season name', 'Season status', 'Category name', 'Appeal name',
-                                              'Appeal description', 'Region name', 'District name'], is_sorted='v_id')
+                                              'Appeal description', 'Region name', 'District name'], is_sorted='v.id')
         if not pagination.page_tab():
             return False
         return True

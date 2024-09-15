@@ -239,4 +239,20 @@ class UserSeason:
         if get_category is None or get_category is False:
             print(color_text('Category not found', 'yellow'))
             return False
+        pagination = Pagination(table_name='votes', table_keys=[
+            'a_id'
+            'a_name'
+            'a_description'
+            'a_price'
+            'a_status'
+            'category_id'
+            'category_name'
+            'region_name'
+            'districts_name'
+            'season_id'
+            'season_name'
+            'season_status'
+            'season_created'
+            'vote_count'], display_keys=['Appeal ID', 'Appeal name', 'Appeal description', 'Appeal price',
+                                         'Appeal status'])
         print(self.get_statistics(season_id=get_active_season['id'], category_id=get_category['id']))

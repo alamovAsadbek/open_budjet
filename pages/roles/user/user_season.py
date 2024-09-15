@@ -171,7 +171,7 @@ class UserSeason:
                          inner join categories c on c.ID = a.CATEGORY_ID
                          inner join regions r on a.REGION_ID = r.ID
                          inner join districts d on d.ID = a.DISTRICTS_ID
-                where v.user_id = %s;
+                where v.user_id = %s order by v.id desc;
         '''
         return execute_query(query, (active_user['id'],), fetch='all')
 

@@ -139,7 +139,6 @@ class AdminSeasonsPageAdmin:
            a.description AS a_description,
            a.price AS a_price,
            a.status AS a_status,
-           c.id AS category_id,
            c.name AS category_name,
            r.name AS region_name,
            d.name AS districts_name,
@@ -158,7 +157,7 @@ class AdminSeasonsPageAdmin:
           AND s.id = %s
           AND c.id = %s
         GROUP BY a.id, a.name, a.description, a.price, a.status, 
-        c.id, c.name, r.name, d.name, s.id, s.name, s.status, s.created_at
+        c.name, r.name, d.name, s.id, s.name, s.status, s.created_at
         ORDER BY vote_count DESC
         '''
         if get_season['status'] == 'end':
@@ -171,3 +170,14 @@ class AdminSeasonsPageAdmin:
         if get_statistics is None or get_statistics is False:
             print(color_text('\nSeason not found', color='red'))
             return False
+        pagination = Pagination(table_name='votes',
+                                table_keys=['a_id', 'a_name', 'a_description', 'a_price', 'a_status', 'category_name',
+                                            'region_name', 'districts_name', 'season_id', 'season_name',
+                                            'season_status', 'season_created', 'vote_count'],
+                                display_keys=['Appeal ID', 'Appeal name', 'Appeal description', 'Appeal price',
+                                              'Appeal status', 'Category name', 'Region name', 'Districts name',
+                                              'Season ID', 'Season name', 'Season status', 'Season created',
+                                              'Vote count'], data=get_statistics)
+        if not pagination.page_tab():
+            return False
+        return True

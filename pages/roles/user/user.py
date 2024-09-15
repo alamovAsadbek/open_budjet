@@ -37,8 +37,9 @@ class User:
         return True
 
     @log_decorator
-    def show_statistics(self):
-        pass
+    def show_statistics(self) -> bool:
+        self.__season_menu.show_statistics()
+        return True
 
     # /season menu
 

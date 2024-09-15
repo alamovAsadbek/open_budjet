@@ -226,7 +226,7 @@ class UserSeason:
         return execute_query(query, params, fetch='all')
 
     @log_decorator
-    def show_statistics(self):
+    def show_statistics(self) -> bool:
         get_active_season = self.get_active_season()
         if get_active_season is None:
             print(color_text('Active season not found', 'yellow'))
